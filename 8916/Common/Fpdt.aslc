@@ -1,0 +1,39 @@
+/** @file
+  FPDT Table, according to ACPI 5.0 spec. section 5.2.23
+
+  This file contains FPDT Table Definition.  
+  
+  Copyright (c) 2012,2013 - Qualcomm Technologies Inc. All rights reserved.<BR>
+
+**/ 
+
+#include "Platform.h"
+
+/* FBPT POINTER ADDRESS (UINT64) for 8916, as in UEFI's uefiplatWP.cfg file */
+#define FBPT_POINTER   0x0000000080380000
+
+#pragma pack(1)
+
+/* ACPI 5.0 FPDT Table */
+FPDT_TABLE FPDT = 
+{
+    /* ACPI FPDT Header */
+    {
+      ACPI_FPDT_SIGNATURE,                                   //Signature
+      sizeof(FPDT_TABLE),                                    //Length
+      ACPI_FPDT_REVISION,                                    //Revision
+      0,                                                     //Checksum
+      ACPI_OEM_ID,                                           //OEMID
+      ACPI_OEM_TABLE_ID,                                     //OEMTableID
+      ACPI_OEM_REVISION,                                     //OEMRevision
+      ACPI_CREATOR_ID,                                       //CreatorID
+      ACPI_CREATOR_REVISION                                  //CreatorRevision
+    },
+    FBPT_RECORD_TYPE,                                        
+    FBPT_RECORD_LENGTH,                                       
+    FBPT_RECORD_REVISION,
+    0x00000000,                                              //Reserved field
+    FBPT_POINTER
+};
+#pragma pack()
+

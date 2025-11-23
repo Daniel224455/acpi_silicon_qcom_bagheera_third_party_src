@@ -1,0 +1,49 @@
+/** @file
+  BGRT Table
+
+  This file contains BGRT Table Definition.  
+  
+  Copyright (c) 2011, 2013 - Qualcomm Technologies Inc. All rights reserved.<BR>
+
+**/ 
+
+#include "Platform.h"
+#include "Acpi.h"
+
+/* IMAGE ADDRESS (UINT64) - Set to zero as it is dynamically allocated by firmware. */
+#define BGRT_IMAGE_ADDRESS   0x0
+
+/* BGRT image is horizontally centered and vertically 38.2% from the top. Image dimensions are dynamically calculated relative to panel resolution by firmware. */
+/* IMAGE OFFSET X - UINT32 */
+#define BGRT_IMAGE_OFFSET_X  0x0
+
+/* IMAGE OFFSET Y - UINT32 */
+#define BGRT_IMAGE_OFFSET_Y  0x0
+
+#pragma pack(1)
+
+/* ACPI 5.0 BGRT Table */
+BGRT_TABLE BGRT = 
+{
+    /* ACPI BGRT Header */
+    {
+      ACPI_BGRT_SIGNATURE,                                   //Signature
+      sizeof (BGRT_TABLE),                                   //Length
+      ACPI_BGRT_REVISION,                                    //Revision
+      0,                                                     //Checksum
+      ACPI_OEM_ID,                                           //OEMID
+      ACPI_OEM_TABLE_ID,                                     //OEMTableID
+      ACPI_OEM_REVISION,                                     //OEMRevision
+      ACPI_CREATOR_ID,                                       //CreatorID
+      ACPI_CREATOR_REVISION                                  //CreatorRevision
+    },
+    0x0001,                                                  //Version 
+    BGRT_IMAGE_INVALID,                                      //Validity of Image, bit 0 = 0 (Invalid image WP Default)
+    BGRT_BITMAP_IMAGE,                                       //Image Type is Bit-Map i.e 0x00
+    BGRT_IMAGE_ADDRESS,
+    BGRT_IMAGE_OFFSET_X,
+    BGRT_IMAGE_OFFSET_Y
+};
+#pragma pack()
+
+

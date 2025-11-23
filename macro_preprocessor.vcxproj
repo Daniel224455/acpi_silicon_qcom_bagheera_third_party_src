@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Preprocess" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Windows Phone (WP) or Windows Tablet (WA) by default it is none in order to catch error (not passing correct prod type) -->
+    <ProdType></ProdType>
+
+    <!-- QCPlatform will be 8974 if not specified -->
+    <QCPlatform>8974</QCPlatform>
+    
+    <!-- Output folder will be current folder if not specified -->
+    <OutputFolder>.\</OutputFolder>
+    
+    <!-- Input folder will be current folder if not specified -->
+    <InputFolder>.</InputFolder>
+
+    <!-- Properties necessary for preprocessing -->
+    <QCExtPath Condition="'$(QCExtPath)'=='' and Exists('$(MSBuildExtensionsPath)\Qualcomm')">$(MSbuildExtensionsPath)\Qualcomm</QCExtPath>
+    <HID_MasterFile>$(QCExtPath)\Qualcomm.HID.props</HID_MasterFile>
+    
+	<!-- Set default values --> 
+	<FileDoesNotExist>False</FileDoesNotExist>
+	
+	<!-- Check for HID props exists in ACPI root folder -->
+	<FileExists>$([System.IO.File]::Exists($(HID_MasterFile)))</FileExists>
+    <Log Condition="!($(FileExists))">
+	************************************************************************************
+	
+	Qualcomm.HID.props does not exists in WDK Folder. Will Search in ACPI\Current Directory
+	
+	************************************************************************************
+	</Log>
+    <HID_MasterFile Condition="!($(FileExists))">Qualcomm.HID.props</HID_MasterFile>
+
+    <FileExists>$([System.IO.File]::Exists($(HID_MasterFile)))</FileExists>
+	<FileDoesNotExist Condition="!Exists($(HID_MasterFile))">True</FileDoesNotExist>
+    
+    <!-- Log, telling whether it will be preprocessing or not. It will depends on master file existence (Default is 'no' -->
+    <Log Condition="$(FileDoesNotExist)">
+  *************************************** NOTE ***************************************
+
+  Qualcomm.HID.props does not exist.
+  It will not preproecss any macros in ACPI asl files.
+  Any build process won't be affected if each driver vcxproj and ACPI asl files do not refer Qualcomm.HID.props
+  For any HID related problem, please check if it's caused because of absent Qualcomm.HID.props
+
+  ************************************************************************************
+    </Log>
+	
+		
+    <Log Condition="$(FileExists)">
+  ------------------------------------------------------------------------------------
+      
+  Qualcomm.HID.props found in location: '$(HID_MasterFile)'
+      
+  Start Preprocessing macros in files at '$(InputFolder)'
+      
+  ------------------------------------------------------------------------------------
+    </Log>
+  </PropertyGroup>
+
+  <Target Name="ErrorCheck">
+	<Error Condition="'$(FileDoesNotExist)'=='True'" Text="Qualcomm.HID.props file not found, cannot pre-process HIDs. Exiting macro_prepprocessor.vcxproj"/>
+  </Target>
+
+  <Target Name="PrintLog" DependsOnTargets="ErrorCheck" >
+    <Message Text="Building Product: $(ProdType)"/>
+    <Message Text="$(Log)"/>
+  </Target>
+  
+  <!-- specifies where input files are coming from -->
+  <ItemGroup>
+    <MacroASL_file Include="$(InputFolder)\*.asl"/>
+  </ItemGroup>
+
+  <Target Name="Preprocess" Inputs="@(MacroASL_file)" Outputs="$(OutputFolder)\%(MacroASL_file.Filename).asl" DependsOnTargets="PrintLog">
+    <PropertyGroup>
+      <SourceStr>$([System.IO.File]::ReadAllText(%(MacroASL_file.Identity)))</SourceStr>
+      <SourceFileName>%(MacroASL_file.Filename)%(MacroASL_file.Extension)</SourceFileName>
+      <Result>$(SourceStr)</Result>
+      <Pattern>HID_\w*"</Pattern>
+      <MacroName>NO_ERROR</MacroName>
+    </PropertyGroup>
+
+    <ReplaceMacro Condition="$(FileExists)" ProdType="$(ProdType)" Pattern="$(Pattern)" QCPlatform="$(QCPlatform)" SourceStr="$(SourceStr)" HID_MasterFile="$(HID_MasterFile)" SourceFileName="$(SourceFileName)">
+      <Output PropertyName="Result" TaskParameter="Result"/>
+      <Output PropertyName="MacroName" TaskParameter="MacroName"/>
+    </ReplaceMacro>
+
+    <Error Condition="'$(Result)'=='BadXML'" Code="Bad Xml Format" Text="Qualcomm.HID.props has bad xml format"/>
+    <Error Condition="'$(Result)'=='InvalidMacro'" Code="Macro Not Found" Text="Macro '$(MacroName)' in '$(SourceFileName)' not found in 'Qualcomm.HID.props' under '$(QCPlatform)'"/>
+    <Error Condition="'$(Result)'=='InvalidProduct'" Code="Product type is invalid" Text="ACPI build option product type is invalid. Need to be either 'WP' or 'WA'"/>
+    
+    <WriteLinesToFile File="$(OutputFolder)\$(SourceFileName)" Lines="$(Result)" Overwrite="true"/>
+  </Target>
+
+  <UsingTask TaskName="ReplaceMacro" TaskFactory="CodeTaskFactory" AssemblyFile="$(MsbuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <ProdType Required="True"/>    
+      <Pattern Required="True"/>
+      <QCPlatform Required="True"/>
+      <SourceStr Required="True"/>
+      <SourceFileName Required="True"/>
+      <HID_MasterFile Required="True"/>
+      <Result Output="True"/>
+      <MacroName Output="True"/>
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml"/>
+      <Using Namespace="System.Text.RegularExpressions"/>
+      <Using Namespace="System.IO"/>
+      <Using Namespace="System.Xml"/>
+      <Using Namespace="System.Collections.Generic"/>
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+        MatchCollection matches = Regex.Matches(SourceStr, Pattern, RegexOptions.RightToLeft);
+        Result = SourceStr;
+        XmlDocument xml = new XmlDocument();
+
+        try
+        {
+          xml.Load(HID_MasterFile);
+          XmlNamespaceManager nsmgr = new XmlNamespaceManager(xml.NameTable);
+          nsmgr.AddNamespace("ms", "http://schemas.microsoft.com/developer/msbuild/2003");
+        
+          // this dictionary is for printing log purpose (allow printing only unique macro even if there are multiple same one)
+          Dictionary<string, string> HID_macros = new Dictionary<string, string>();
+        
+          Console.WriteLine("    Start Preprocess on file \'" + SourceFileName +"\'");
+        
+          if (matches.Count == 0)
+          {
+            Console.WriteLine("    There is no macro to preprocess");
+          }
+        
+          // Search str differs depending on Qualcomm.HID.props file (WP or WA)
+          string search_base_str = "";
+          if (ProdType == "WA")
+          { 
+            search_base_str = "/ms:Project/ms:PropertyGroup[contains(@Condition," + QCPlatform + ")]/ms:";
+          }
+          else if (ProdType == "WP")
+          {
+            search_base_str = "/ms:Project/ms:PropertyGroup[contains(@Condition," + QCPlatform + ")]/ms:";
+          }
+          else
+          {
+            Console.WriteLine("Invalid Product Type: " + ProdType);
+            Result = "InvalidProduct";
+          }
+        
+          for (int i = 0; i < matches.Count; i++)
+          {
+            string macro = matches[i].ToString();
+            macro = macro.Substring(0, macro.Length - 1);
+            string search_str = search_base_str + macro;
+                      
+            XmlNode platform_node = xml.SelectSingleNode(search_str, nsmgr);
+            // if HID macro is found in asl file and not found in HID master file (Qualcomm.HID.props) it should stop building
+            if (platform_node == null)
+            {
+              Result = "InvalidMacro";
+              MacroName = macro;
+              break;
+            }
+            string HID_value = platform_node.InnerText;
+            Result = Regex.Replace(Result, macro, HID_value, RegexOptions.RightToLeft);
+            if (!HID_macros.ContainsKey(macro))
+            {
+              HID_macros.Add(macro, HID_value);
+              Console.WriteLine("    Macro \'" + macro + "\' is replaced with HID \'" + HID_value + "\'");
+            }
+          }
+        
+          Console.WriteLine("\n    --------------------------------------------------------\n");
+        }
+        catch (XmlException e)
+        {
+          Result = "BadXML";
+        }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

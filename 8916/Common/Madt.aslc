@@ -1,0 +1,194 @@
+/** @file
+  MADT Table
+
+  This file contains a structure definition for the ACPI 5.0 Multiple APIC 
+  Description Table (MADT).  
+  
+  Copyright (c) 2011, 2013 Qualcomm Technologies Inc. All rights reserved.<BR>
+
+**/ 
+
+#include "Platform.h"
+#include "Acpi.h"
+
+
+#define ACPI_MULTIPLE_APIC_DESCRIPTION_TABLE_REVISION 0x00000003
+
+
+//
+// Local APIC GIC address
+// These are physical addresses on Versatile Express
+//
+#define DISTRIBUTOR_PHYSICAL_ADDRESS  0x0B000000
+#define ACPI_LOCAL_APIC_ADDRESS       (0x0B000000+0x2000)
+
+//These addresses are defined by the MP shared region defined in the UEFI memory map.
+#define MP_MAILBOX_ADDRESS_GIC0         0x80301000
+#define MP_MAILBOX_ADDRESS_GIC1         0x80302000
+#define MP_MAILBOX_ADDRESS_GIC2         0x80303000
+#define MP_MAILBOX_ADDRESS_GIC3         0x80304000
+
+#define ACPI_PROCESSOR_LOCAL_GIC              11
+#define ACPI_GIC_DISTRIBUTOR                  12
+
+#define PLGF_ENABLED_BIT    0
+#define PLGF_ENABLED        (1 << PLGF_ENABLED_BIT)
+
+#pragma pack (1)
+
+typedef struct _ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE   {
+    UINT8 Type;
+    UINT8 Length;
+    UINT16 Reserved;
+    UINT32 Identifier;
+    UINT32 AcpiProcessorId;
+    UINT32 Flags;
+    UINT32 ParkingProtocolVersion;
+    UINT32 PerformanceInterruptGsi;
+    UINT64 MailboxPhysicalAddress;
+    UINT64 ControllerPhysicalAddress;
+} ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE;
+
+typedef struct _ACPI_GIC_DISTRIBUTOR_STRUCTURE  {
+    UINT8 Type;
+    UINT8 Length;
+    UINT16 Reserved1;
+    UINT32 Identifier;
+    UINT64 ControllerPhysicalAddress;
+    UINT32 GsivBase;
+    UINT32 Reserved;
+} ACPI_GIC_DISTRIBUTOR_STRUCTURE;
+
+
+typedef struct {
+  ACPI_HEADER                 Header;
+  UINT32                      LocalApicAddress;
+  UINT32                      Flags;
+} APIC_DESCRIPTION_TABLE_HEADER;
+
+
+//
+// ACPI 5.0 MADT structure
+//
+typedef struct {
+
+  APIC_DESCRIPTION_TABLE_HEADER                         Header;
+  ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE                   LocalGic0;
+  ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE                   LocalGic1;
+  ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE                   LocalGic2;
+  ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE                   LocalGic3;
+  ACPI_GIC_DISTRIBUTOR_STRUCTURE                        Distributor;
+
+} ACPI_MULTIPLE_APIC_DESCRIPTION_TABLE;
+
+#pragma pack ()
+
+///
+/// Multiple APIC Description Table header definition.  The rest of the table
+/// must be defined in a platform specific manner.
+///
+
+#pragma pack(1)
+//
+// Multiple APIC Description Table
+//
+ACPI_MULTIPLE_APIC_DESCRIPTION_TABLE Madt = 
+{
+   //Header
+   {
+    {
+      ACPI_APIC_SIGNATURE,                                   //Signature
+      sizeof (ACPI_MULTIPLE_APIC_DESCRIPTION_TABLE),         //Length
+      ACPI_MULTIPLE_APIC_DESCRIPTION_TABLE_REVISION,         //Revision
+      0,                                                     //Checksum
+      ACPI_OEM_ID,                                           //OEMID
+      ACPI_OEM_TABLE_ID,                                     //OEMTableID
+      ACPI_OEM_REVISION,                                     //OEMRevision
+      ACPI_CREATOR_ID,                                       //CreatorID
+      ACPI_CREATOR_REVISION                                  //CreatorRevision
+     },
+    ACPI_LOCAL_APIC_ADDRESS,                                 //LocalApicAddress
+    0                                                        //Flags
+    },
+
+  //LocalGic0
+  {
+    ACPI_PROCESSOR_LOCAL_GIC,                         //Type
+    sizeof (ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE),     //Length
+    0x00,                                             //Reserved
+    0x00,                                             //Identifier
+    0x00,                                             //AcpiProcessorId
+    PLGF_ENABLED,                                     //Flags
+    0x01,                                             //ParkingProtocolVersion
+    (16 + 7),                                         //PerformanceInterruptGsi
+    MP_MAILBOX_ADDRESS_GIC0,                          //MailboxPhysicalAddress
+    0x0000000000000000                                //ControllerPhysicalAddress
+  },
+
+  //LocalGic1
+  {
+    ACPI_PROCESSOR_LOCAL_GIC,                         //Type
+    sizeof (ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE),     //Length
+    0x00,                                             //Reserved
+    0x01,                                             //Identifier
+    0x01,                                             //AcpiProcessorId
+    PLGF_ENABLED,                                     //Flags
+    0x01,                                             //ParkingProtocolVersion
+    (16 + 7),                                         //PerformanceInterruptGsi
+    MP_MAILBOX_ADDRESS_GIC1,                          //MailboxPhysicalAddress
+    0x0000000000000000                                //ControllerPhysicalAddress
+  },
+
+  //LocalGic2
+  {
+    ACPI_PROCESSOR_LOCAL_GIC,                         //Type
+    sizeof (ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE),     //Length
+    0x00,                                             //Reserved
+    0x02,                                             //Identifier
+    0x02,                                             //AcpiProcessorId
+    PLGF_ENABLED,                                     //Flags
+    0x01,                                             //ParkingProtocolVersion
+    (16 + 7),                                         //PerformanceInterruptGsi
+    MP_MAILBOX_ADDRESS_GIC2,                          //MailboxPhysicalAddress
+    0x0000000000000000                                //ControllerPhysicalAddress
+  },
+
+  //LocalGic3
+  {
+    ACPI_PROCESSOR_LOCAL_GIC,                         //Type
+    sizeof (ACPI_PROCESSOR_LOCAL_APIC_STRUCTURE),     //Length
+    0x00,                                             //Reserved
+    0x03,                                             //Identifier
+    0x03,                                             //AcpiProcessorId
+    PLGF_ENABLED,                                     //Flags
+    0x01,                                             //ParkingProtocolVersion
+    (16 + 7),                                         //PerformanceInterruptGsi
+    MP_MAILBOX_ADDRESS_GIC3,                          //MailboxPhysicalAddress
+    0x0000000000000000                                //ControllerPhysicalAddress
+  },
+
+  //Distributor
+  {
+    ACPI_GIC_DISTRIBUTOR,                             //Type
+    sizeof (ACPI_GIC_DISTRIBUTOR_STRUCTURE),          //Length
+    0,                                                //Reserved1
+    0,                                                //Identfier
+    DISTRIBUTOR_PHYSICAL_ADDRESS,                     //ControllerPhysicalAddress
+    0,                                                //GsivBase
+    0                                                 //Reserved
+  }
+};
+#pragma pack()
+
+VOID*
+ReferenceAcpiTable (
+  VOID
+  )
+{
+  //
+  // Reference the table being generated to prevent the optimizer from removing the 
+  // data structure from the exeutable
+  //
+  return (VOID*)&Madt;
+}
+

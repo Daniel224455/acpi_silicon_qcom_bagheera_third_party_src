@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="abp.xsl" ?>
+<IdleData>
+    <Macros>
+    <![CDATA[
+    #define   FLAG_NONE               0
+    #define   FLAG_NOTCACHECOHERENT   1
+    #define   FLAG_CONTEXTLOSING      2
+    #define   FLAG_NONINTERRUPTIBLE   4
+    #define   FLAG_PLATFORMONLY       8
+    #define   FLAG_DISABLED           16
+
+    #define   DEPF_NONE               0
+    #define   DEPF_LOOSE              1
+    #define   DEPF_INITIATING         2
+    #define   DEPF_DEPENDENT          4
+    #define   DEPF_LOOSEINIT          (DEPF_LOOSE|DEPF_INITIATING)
+    
+    #define CLOCK_SLEEP_FLAG_NONE                   0x00000000
+    #define CLOCK_SLEEP_FLAG_RAMP_DOWN_CPU          0x00000001
+    #define CLOCK_SLEEP_FLAG_L2CACHE_FLUSH          0x00000002
+    #define CLOCK_SLEEP_FLAG_RAMP_DOWN_L2CACHE      0x00000004
+    #define CLOCK_SLEEP_FLAG_RAMP_DOWN_L3CACHE      0x00000008
+    #define CLOCK_SLEEP_FLAG_RAMP_DOWN_APSS         0x00000010
+    #define CLOCK_SLEEP_FLAG_RAMP_DOWN_XO           0x00000010
+    #define CLOCK_SLEEP_FLAG_CORE_RET               0x00000020
+    
+    #define TZ_VALUE_COLLAPSE                       0x00000000
+    #define TZ_VALUE_L2_PC                          0x00000001
+    #define TZ_VALUE_L2_RET                         0x00000002
+    #define TZ_VALUE_L2_GDHS                        0x00000003
+    #define TZ_VALUE_NON_INTERRUPTIBLE              0x00000010
+    #define TZ_VALUE_PSCI_FREEZE                    0x00000100
+    
+    ]]>
+    </Macros>
+    <IdleLevelData Version="0x1">
+        <Level Name="A53Core0" Mask="0x0">
+            <Modes>
+                <Mode Name="C1" Latency="0" BreakEven="0" Flags="0" TZFlags="0" ClockFlags="0" />
+                
+                <Mode Name="C3" Latency="5000" BreakEven="7500" Flags="3" TZFlags="0" ClockFlags="1" />
+            </Modes>
+        </Level>
+        <Level Name="A53Core1" Mask="0x1">
+            <Modes>
+                <Mode Name="C1" Latency="0" BreakEven="0" Flags="0" TZFlags="0" ClockFlags="0" />
+                
+                <Mode Name="C3" Latency="5000" BreakEven="7500" Flags="3" TZFlags="0" ClockFlags="1" />
+            </Modes>
+        </Level>
+        <Level Name="A53Core2" Mask="0x2">
+            <Modes>
+                <Mode Name="C1" Latency="0" BreakEven="0" Flags="0" TZFlags="0" ClockFlags="0" />
+                
+                <Mode Name="C3" Latency="5000" BreakEven="7500" Flags="3" TZFlags="0" ClockFlags="1" />
+            </Modes>
+        </Level>
+        <Level Name="A53Core3" Mask="0x3">
+            <Modes>
+                <Mode Name="C1" Latency="0" BreakEven="0" Flags="0" TZFlags="0" ClockFlags="0" />
+                
+                <Mode Name="C3" Latency="5000" BreakEven="7500" Flags="3" TZFlags="0" ClockFlags="1" />
+            </Modes>
+        </Level>
+        <Level Name="A53L2" Mask="0xFFFFFFFF">
+            <Modes>
+	    	<Mode Name="D2" Latency="5000" BreakEven="20000" Flags="0" TZFlags="3" ClockFlags="0">
+			<Dependencies>
+				<RequireAll>
+					<RequireOne>
+						<Ref Level="A53Core0" Mode="C1" Type="7" />
+						<Ref Level="A53Core0" Mode="C3" Type="7" />
+				 	</RequireOne>
+				 	<RequireOne>
+						<Ref Level="A53Core1" Mode="C1" Type="7" />
+						<Ref Level="A53Core1" Mode="C3" Type="7" />
+				 	</RequireOne>
+				 	<RequireOne>
+						<Ref Level="A53Core2" Mode="C1" Type="7" />
+						<Ref Level="A53Core2" Mode="C3" Type="7" />
+				 	</RequireOne>
+				 	<RequireOne>
+						<Ref Level="A53Core3" Mode="C1" Type="7" />
+						<Ref Level="A53Core3" Mode="C3" Type="7" />
+				 	</RequireOne>
+				 </RequireAll>
+	    		</Dependencies>
+	    	</Mode>
+                <Mode Name="D2D" Latency="5000" BreakEven="20000" Flags="16" TZFlags="2" ClockFlags="0">
+                    <Dependencies>
+                        <RequireAll>
+                            <RequireOne>
+                                <Ref Level="A53Core0" Mode="C1" Type="7" />
+                                <Ref Level="A53Core0" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core1" Mode="C1" Type="7" />
+                                <Ref Level="A53Core1" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core2" Mode="C1" Type="7" />
+                                <Ref Level="A53Core2" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core3" Mode="C1" Type="7" />
+                                <Ref Level="A53Core3" Mode="C3" Type="7" />
+                            </RequireOne>
+                        </RequireAll>
+                    </Dependencies>
+                </Mode>
+                <Mode Name="D3" Latency="5000" BreakEven="50000" Flags="0" TZFlags="1" ClockFlags="4">
+                    <Dependencies>
+                        <RequireAll>
+                            <RequireOne>
+                                <Ref Level="A53Core0" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core1" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core2" Mode="C3" Type="7" />
+                            </RequireOne>
+                            <RequireOne>
+                                <Ref Level="A53Core3" Mode="C3" Type="7" />
+                            </RequireOne>
+                        </RequireAll>
+                    </Dependencies>
+                </Mode>
+            </Modes>
+        </Level>
+        
+        <Level Name="platform" Mask="0xFFFFFFFF">
+            <Modes>
+                <Mode Name="xo" Latency="10000" BreakEven="330000" Flags="32" TZFlags="0" ClockFlags="16">
+                    <Dependencies>
+                        <RequireAll>
+                            <RequireOne>
+                                <Ref Level="A53L2" Mode="D3" Type="7" />
+                            </RequireOne>
+                        </RequireAll>
+                    </Dependencies>
+                </Mode>
+            </Modes>
+        </Level>
+    </IdleLevelData>
+</IdleData>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="urn:Microsoft.WindowsPhone/PackageSchema.v8.00"
+  Owner="Qualcomm" Component="M8016SOC_SBC" SubComponent="acpi"
+  OwnerType="SiliconVendor"
+  Platform="QC$(QCPlatform)" ReleaseType="Production"
+  Partition="PLAT">
+  <Macros>
+    <Macro Id="acpi" Value="\ACPI" />
+  </Macros>
+  <Components>
+  <OSComponent>
+  <Files>
+    <File 
+        Source="$(BIN_PATH)\bgrt.acpi"
+        DestinationDir="$(acpi)"
+        Name="bgrt.acp" />
+    <File 
+        Source="$(SRC_PATH)\bgrt_logo\logo1.bmp"
+        DestinationDir="$(runtime.root)"
+        Name="logo1.bmp" /> 
+    <File 
+        Source="$(SRC_PATH)\bgrt_logo\logo2.bmp"
+        DestinationDir="$(runtime.root)"
+        Name="logo2.bmp" /> 
+    <File 
+        Source="$(BIN_PATH)\csrt.acpi"
+        DestinationDir="$(acpi)"
+        Name="csrt.acp" />
+    <File 
+        Source="$(BIN_PATH)\dbg2.acpi"
+        DestinationDir="$(acpi)"
+        Name="dbg2.acp" />    
+    <File 
+        Source="$(BIN_PATH)\dsdt.aml"
+        DestinationDir="$(acpi)"
+        Name="dsdt.aml" />
+    <File 
+        Source="$(BIN_PATH)\facp.acpi"
+        DestinationDir="$(acpi)"
+        Name="facp.acp" />
+    <File 
+        Source="$(BIN_PATH)\facs.acpi"
+        DestinationDir="$(acpi)"
+        Name="facs.acp" />
+    <File 
+        Source="$(BIN_PATH)\fpdt.acpi"
+        DestinationDir="$(acpi)"
+        Name="fpdt.acp" />	
+    <File 
+        Source="$(BIN_PATH)\madt.acpi"
+        DestinationDir="$(acpi)"
+        Name="madt.acp" />
+    <File 
+        Source="$(BIN_PATH)\gtdt.acpi"
+        DestinationDir="$(acpi)"
+        Name="gtdt.acp" />
+    <File 
+        Source="$(BIN_PATH)\TPM2.acpi"
+        DestinationDir="$(acpi)"
+        Name="TPM2.acp" />
+    <File 
+        Source="$(BIN_PATH)\UEFI_CFG.TXT"
+        DestinationDir="$(runtime.root)"
+        Name="UEFI_CFG.TXT" />
+    </Files>
+  </OSComponent>
+  </Components>
+</Package>

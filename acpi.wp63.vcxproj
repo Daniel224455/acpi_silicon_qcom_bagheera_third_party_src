@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="BuildACPI" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Set path to QC build extensions installed with WDK. -->
+  <PropertyGroup>
+    <QCExtPath Condition="'$(QCExtPath)'=='' and Exists('$(MSBuildExtensionsPath)\Qualcomm')">$(MSBuildExtensionsPath)\Qualcomm</QCExtPath>
+  </PropertyGroup>
+  <!-- Props file is used to set tool change based on wdk being used-->
+  <Import Condition="'$(QualcommWdkPropsImported)' != 'true' and Exists('$(QCExtPath)\Qualcomm.Wdk.props')" Project="$(QCExtPath)\Qualcomm.Wdk.props" />  
+
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="acpi|arm">
+      <Configuration>acpi</Configuration>
+      <Platform>arm</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}</ProjectGuid>
+    <RootNamespace>acpi</RootNamespace>
+    <PlatformToolset Condition="'$(QualcommWdkPropsImported)' != 'true'">WindowsApplicationForDrivers8.1</PlatformToolset>
+    <PlatformToolset Condition="'$(QualcommWdkPropsImported)' == 'true'">$(WDKApplicationPTS)</PlatformToolset>
+    <DISABLE_AUTO_PACKAGING>true</DISABLE_AUTO_PACKAGING>
+  </PropertyGroup>
+  <PropertyGroup>
+    <BuildScript>build_acpi.bat</BuildScript>
+    <PlatformName>$(QCPlatform)</PlatformName>
+  </PropertyGroup>
+
+  <ItemGroup>     
+    <ASL_Items Include="$(MSBuildProjectDirectory)\$(QCPlatform)\**\*.asl"/>	
+  </ItemGroup>    
+  
+  <Target Name="GetACPI_Variants" Inputs="@(ASL_Items)" Outputs="%(ASL_Items.Directory)\dummy.file">
+    <PropertyGroup>
+      <!-- Get the recursive part of the ASL_Items entry; the ** part. -->
+      <ACPI_TempVariant>%(ASL_Items.RecursiveDir)</ACPI_TempVariant>
+      <!-- Strip the trailing \ from the directory name. -->
+      <ACPI_TempVariant>$(ACPI_TempVariant.TrimEnd(&quot;\&quot;))</ACPI_TempVariant>
+      <!-- Get test targets -->
+      <ACPI_TempVariant>$(ACPI_TempVariant.Replace('WP\Testdev','TEST_WP'))</ACPI_TempVariant>
+	  <ACPI_TempVariant>$(ACPI_TempVariant.Replace('Wp\Testdev','TEST_WP'))</ACPI_TempVariant>
+	  <ACPI_TempVariant>$(ACPI_TempVariant.Replace('wP\Testdev','TEST_WP'))</ACPI_TempVariant>
+	  <ACPI_TempVariant>$(ACPI_TempVariant.Replace('wp\Testdev','TEST_WP'))</ACPI_TempVariant>
+      <ACPI_TempVariant>$(ACPI_TempVariant.Replace('WA\Testdev','TEST_WA'))</ACPI_TempVariant>
+      <!-- Filter out all variants for the WA platform. -->
+      <ACPI_TempVariant Condition="$(ACPI_TempVariant.EndsWith(&quot;WA&quot;))"></ACPI_TempVariant>
+      <ACPI_TempVariant Condition="$(ACPI_TempVariant.EndsWith(&quot;Common&quot;))"></ACPI_TempVariant>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(ACPI_TempVariant)'!=''">
+      <ACPI_Variants Include="$(ACPI_TempVariant)"/>
+    </ItemGroup>
+  </Target>
+  <Target Name="Precheck">
+    <Error Condition="!Exists('$(BuildScript)')" Text="Failed to find batch file $(BuildScript)."/>
+    <Error Condition="!Exists('$(QCPlatform)') and '$(QCPlatform)'!='8996'" Text="QCPlatform not set, please set it before compiling."/>
+  </Target>   
+  <Target Name="BuildACPI" DependsOnTargets="Precheck;GetACPI_Variants">
+    <Exec Condition ="%(ACPI_Variants.Identity)!='common'"  Command="CALL $(BuildScript) %(ACPI_Variants.Identity)" ContinueOnError="false"/>
+  </Target>
+  <Target Name="InjectFFUItems">
+     <Exec Command="echo test > UEFI_CFG.TXT" WorkingDirectory="$(SolutionDir)TABLES\$(PlatformName.Substring(0, $(PlatformName.IndexOf('_'))))\$(PlatformName)"/>
+  </Target>
+  <PropertyGroup>
+     <Platform>arm</Platform>
+  </PropertyGroup>
+
+<!--8916 platform. --> 
+  <ItemGroup Condition="'$(PlatformName)'=='8916_CDP_WP' or '$(PlatformName)'=='8916'">
+     <PkgProj Include="$(SolutionDir)acpi_8916_CDP.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_CDP_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+     <PkgProj Condition="Exists('$(SolutionDir)acpi_8916_CDP_TEST.pkg.xml')" Include="$(SolutionDir)acpi_8916_CDP_TEST.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_CDP_TEST_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+  </ItemGroup>
+  <ItemGroup Condition="'$(PlatformName)'=='8916_MTP_WP' or '$(PlatformName)'=='8916'">
+     <PkgProj Include="$(SolutionDir)acpi_8916_MTP.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_MTP_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+     <PkgProj Condition="Exists('$(SolutionDir)acpi_8916_MTP_TEST.pkg.xml')" Include="$(SolutionDir)acpi_8916_MTP_TEST.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_MTP_TEST_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+  </ItemGroup>     
+  <ItemGroup Condition="'$(PlatformName)'=='8916_QRD_WP' or '$(PlatformName)'=='8916'">
+     <PkgProj Include="$(SolutionDir)acpi_8916_QRD.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_QRD_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+     <PkgProj Condition="Exists('$(SolutionDir)acpi_8916_QRD_TEST.pkg.xml')" Include="$(SolutionDir)acpi_8916_QRD_TEST.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8916\8916_QRD_TEST_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+  </ItemGroup>
+  <ItemGroup Condition="'$(PlatformName)'=='8016_SBC_WP' or '$(PlatformName)'=='8916'">
+     <PkgProj Include="$(SolutionDir)acpi_8016_SBC.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8016\8016_SBC_WP;SRC_PATH=$(SolutionDir)SRC</Variables>
+     </PkgProj>
+	 <PkgProj Condition="Exists('$(SolutionDir)acpi_8016_SBC_TEST.pkg.xml')" Include="$(SolutionDir)acpi_8016_SBC_TEST.pkg.xml">
+        <Variables>BIN_PATH=$(SolutionDir)TABLES\8016\8016_SBC_TEST_WP;SRC_PATH=$(SolutionDir)SRC</Variables>		
+     </PkgProj>
+   </ItemGroup>  
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <!-- Import the Qualcomm properties and task definitions -->
+  <Import Condition="Exists('$(QCExtPath)\Qualcomm.Common.props') and '$(QualcommCommonPropsImported)' != 'true'" Project="$(QCExtPath)\Qualcomm.Common.props" />
+  <Import Condition="Exists('$(QCExtPath)\Qualcomm.tasks') and '$(QualcommTasksImported)' != 'true'" Project="$(QCExtPath)\Qualcomm.tasks" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <!-- Import the Qualcomm target definitions -->
+  <Import Condition="Exists('$(QCExtPath)\Qualcomm.Common.targets') and '$(QualcommCommonTargetsImported)' != 'true'" Project="$(QCExtPath)\Qualcomm.Common.targets" />
+  <Target Name="AfterBuild" AfterTargets="BuildACPI">
+     <Message Text="Dummy after build target to build packages, please do not remove it"/>
+  </Target>
+  
+  <!-- quick hack for CRM builds -->
+  <Target Name="QCPackageFixup" BeforeTargets="QCPackageCopy">
+    <Message Text="TargetDir = $(TargetDir)" />	
+	<Message Text="SubProjectsIDs = %(SubProjectsIDs.Identity)" />	
+	<Message Text="CommonSubProjectID = %(CommonSubProjectID.Identity)"/>
+     <Message Text="QCBootPackageDir =$(QCBootPackageDir)" />
+    <ItemGroup>
+      <ACPIPackages Include="$(SolutionDir)\src\bgrt_logo\*.bmp">
+          <Dest>$(QCBootPackageDir)\Update\</Dest>
+          <HY11>true</HY11>
+          <HY22>true</HY22>
+          <HD11>true</HD11>
+      </ACPIPackages>
+      <ACPIPackages Include="$(SolutionDir)\bin\cpfatfs.exe">
+          <Dest>$(QCBootPackageDir)\Update\</Dest>
+          <HY11>false</HY11>
+          <HY22>false</HY22>
+          <HD11>false</HD11>
+      </ACPIPackages>
+      <ACPIPackages Include="$(SolutionDir)\TEMP\ACPI\**\*" Exclude="$(SolutionDir)\TEMP\ACPI\**\*_CHI_*WP\**" >
+          <Dest>$(QCBootPackageDir)\ACPI\</Dest>
+          <HY11>true</HY11>
+          <HD11>false</HD11>
+      </ACPIPackages> 
+      <ACPIPackages Include="$(SolutionDir)\TEMP\ACPI\**\*" >
+          <Dest>$(QCBootPackageDir)\ACPI\</Dest>
+          <HY11>false</HY11>
+          <HY22>true</HY22>
+          <HD11>false</HD11>
+      </ACPIPackages> 
+    </ItemGroup>
+
+  </Target>
+  <!-- end hack -->
+  <ItemGroup>
+    <QCSourceFiles Include="$(QCPLATFORM)\*_WP\**\*" Exclude="$(QCPLATFORM)\*_WP\Testdev\*;8994\8994*_CHI_*WP\**">
+      <Dest>acpi\$(QCPLATFORM)\</Dest>
+      <HY11>true</HY11>
+	  <HY22>true</HY22>
+      <HD11>false</HD11>
+      </QCSourceFiles>
+    <QCSourceFiles Include="$(QCPLATFORM)\*_WP\**\*" Exclude="$(QCPLATFORM)\*_WP\Testdev\*">
+      <Dest>acpi\$(QCPLATFORM)\</Dest>
+      <HY22>true</HY22>
+    </QCSourceFiles>
+    <QCSourceFiles Include="bin\**\*" Exclude="bin\asl.exe">
+      <Dest>acpi\bin\</Dest>
+      <HY11>true</HY11>
+      <HY22>false</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="bin\**\*">
+      <Dest>acpi\bin\</Dest>
+      <HY11>false</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="inc\$(QCPLATFORM)\**\*">
+      <Dest>acpi\inc\$(QCPLATFORM)\</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+	<QCSourceFiles Include="inc\*">
+      <Dest>acpi\inc\</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="Common\$(QCPLATFORM)\**\*" Exclude="$(QCPLATFORM)\Common\WA\*">
+      <Dest>acpi\Common\$(QCPLATFORM)</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="$(QCPLATFORM)\Common\**\*" Exclude="$(QCPLATFORM)\Common\WA\*">
+      <Dest>acpi\$(QCPLATFORM)\Common</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+	<QCSourceFiles Include="src\**\*">
+      <Dest>acpi\src\</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="TABLES\**\*" Exclude="$(SolutionDir)\TABLES\8994\8994_*CHI*_WP\**">
+      <Dest>acpi\TABLES\</Dest>
+      <HY11>true</HY11>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="TABLES\**\*">
+      <Dest>acpi\TABLES\</Dest>
+      <HY22>true</HY22>
+    </QCSourceFiles>
+	<QCSourceFiles Include="TEMP\**\*" >
+      <Dest>acpi\TEMP\</Dest>
+      <HY11>FALSE</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+    <QCSourceFiles Include="acpi.wp63.vcxproj;macro_preprocessor.vcxproj;build_acpi.bat;*$(QCPLATFORM)*.*" Exclude="*test.pkg.xml;*chi*.xml">
+      <Dest>acpi\</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>
+	<QCSourceFiles Include="acpi.wp63.vcxproj;*CHI.pkg.xml" Exclude="*test.pkg.xml">
+      <Dest>acpi\</Dest>
+      <HY22>true</HY22>
+    </QCSourceFiles>
+    <QCSourceFiles Condition="'$(QCPlatform)'=='8909'" Include="*8208*.*;*8209*.*;*8009*.*" Exclude="*test.pkg.xml">
+      <Dest>acpi\</Dest>
+      <HY11>true</HY11>
+      <HY22>true</HY22>
+      <HD11>false</HD11>
+    </QCSourceFiles>		
+  </ItemGroup>
+  <Target Name="CreatePackageRules" AfterTargets="AfterBuild" BeforeTargets="QCPackageCopy" DependsOnTargets="BuildSPKG_1" >
+    <ItemGroup>	
+      <QCPackageFiles>
+	  <Prebuilt>false</Prebuilt>
+      </QCPackageFiles>     
+    </ItemGroup>
+   </Target>
+   
+  <Target Name="ACPIPackage" Inputs="@(SubProjectsIDs)" Outputs="prebuilt\%(SubProjectsIDs.Identity)" AfterTargets="AfterBuild" DependsOnTargets="QCPackageCopy" >
+  <MESSAGE Text="%(SubProjectsIDs.Identity)" />
+  <PropertyGroup>
+      <ACPIPrebuiltFolder>%(SubProjectsIDs.Identity)</ACPIPrebuiltFolder>
+      <ACPIPrebuiltFolder Condition="'$(QCPlatform)'=='8916'">$(QCPlatform)</ACPIPrebuiltFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC.acpi.spkg;$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST.acpi.spkg;$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc_test</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>	
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST_ATHENS.acpi.spkg;$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST_ATHENS.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc_test_athens</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>	
+	 
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc_test</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>	
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(OutDir)\*%(SubProjectsIDs.Identity)*_SBC_TEST_ATHENS.acpi.cab">
+        <Dest>$(QCCABFileDir)\sbc_test_athens</Dest>
+        <HY11>true</HY11>
+        <HY22>true</HY22>
+        <HD11>true</HD11>
+      </ACPIPackages>	
+	  <ACPIPackages Include="$(SolutionDir)\TABLES\$(ACPIPrebuiltFolder)\**\*" Exclude="$(SolutionDir)\TABLES\**\*_WA\**\*;$(SolutionDir)\TABLES\8994\8994_*CHI*_WP\*">
+          <Dest>$(QCBootPackageDir)\$(ACPIPrebuiltFolder)</Dest>
+          <HY11>true</HY11>
+          <HY22>true</HY22>
+          <HD11>true</HD11>
+      </ACPIPackages>  	  
+	 
+	  <ACPIPackages Condition="'$(QCPlatform)'=='8916'" Include="$(SolutionDir)\TABLES\%(SubProjectsIDs.Identity)\**\*" Exclude="$(SolutionDir)\TABLES\**\*_WA\**\*">
+          <Dest>$(QCBootPackageDir)\%(SubProjectsIDs.Identity)</Dest>
+          <HY11>true</HY11>
+          <HY22>true</HY22>
+          <HD11>true</HD11>
+      </ACPIPackages> 	  	  	  
+	  <ACPIPackages Include="$(SolutionDir)\TABLES\$(ACPIPrebuiltFolder)\**\*" Exclude="$(SolutionDir)\TABLES\**\*_WA\**\*">
+          <Dest>$(QCBootPackageDir)\$(ACPIPrebuiltFolder)</Dest>
+          <HY22>true</HY22>
+      </ACPIPackages>  
+    </ItemGroup>		
+	<ItemGroup>
+		<CPYITEM  Include="$(SolutionDir)\TABLES\$(ACPIPrebuiltFolder)\**\*" />		
+    </ItemGroup>
+    <PropertyGroup>
+      <ACPIPrebuiltFolder Condition="'$(QCPlatform)'=='8916'">%(SubProjectsIDs.Identity)</ACPIPrebuiltFolder>
+    </PropertyGroup>
+    <Copy SourceFiles="@(ACPIPackages)" DestinationFolder="$(QCPackageDir)\QCOM\prebuilt\$(ACPIPrebuiltFolder)\%(ACPIPackages.Dest)\%(ACPIPackages.RecursiveDir)" SkipUnchangedFiles='True'/>  
+     <MESSAGE Text="*****************************************************************************"  />	
+    <Copy Condition="'%(ACPIPackages.HY11)' == 'true'" SourceFiles="@(ACPIPackages)" DestinationFolder="$(QCPackageDir)\HY11\prebuilt\$(ACPIPrebuiltFolder)\%(ACPIPackages.Dest)\%(ACPIPackages.RecursiveDir)" SkipUnchangedFiles='True'/>
+    <Message Text="Packing HY22 files..." />
+    <Copy Condition="'%(ACPIPackages.HY22)' == 'true'" SourceFiles="@(ACPIPackages)" DestinationFolder="$(QCPackageDir)\HY22\prebuilt\$(ACPIPrebuiltFolder)\%(ACPIPackages.Dest)\%(ACPIPackages.RecursiveDir)" SkipUnchangedFiles='True'/>
+    <Message Text="Packing HD11 files..." />
+    <Copy Condition="'%(ACPIPackages.HD11)' == 'true'" SourceFiles="@(ACPIPackages)" DestinationFolder="$(QCPackageDir)\HD11\prebuilt\$(ACPIPrebuiltFolder)\%(ACPIPackages.Dest)\%(ACPIPackages.RecursiveDir)" SkipUnchangedFiles='True'/>
+  </Target>  
+   
+</Project>
