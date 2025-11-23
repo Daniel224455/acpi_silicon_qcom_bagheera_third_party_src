@@ -135,8 +135,9 @@ if not exist %PREPROCESS% (
 
 :: Ensure the MS arm compiler gets picked up
 Setlocal EnableDelayedExpansion
-IF EXIST !VCINSTALLDIR!bin\x86_ARM\cl.exe (
-    set path=!VCINSTALLDIR!bin\x86_ARM;!path!
+IF EXIST %BIN%\MSVC\cl.exe (
+    set path=%BIN%\MSVC;%BIN%\MSBuild;!path!
+
  ) ELSE ( 
     set path=!WDKContentRoot!\bin\x86\arm;!path!
  )
@@ -151,7 +152,7 @@ if ERRORLEVEL 9009 if not ERRORLEVEL 9010 (
     GOTO:EOF
 )
 
-"!WDKContentRoot!\Tools\x64\ACPIVerify\asl.exe" > NUL 2>&1
+"%BIN%\asl.exe" > NUL 2>&1
 
 if ERRORLEVEL 9009 if not ERRORLEVEL 9010 ( 
     echo.
@@ -190,8 +191,8 @@ if exist %WORKSPACE%\%SOC%\%VARIANT%\Testdev\testdev.asl (
 call :preprocess_macros
 :: Ensure the MS arm compiler gets picked up again since env was reset due to msbuild
 Setlocal EnableDelayedExpansion
-IF EXIST !VCINSTALLDIR!bin\x86_ARM\cl.exe (
-    set path=!VCINSTALLDIR!bin\x86_ARM;!path!
+IF EXIST %BIN%\MSVC\cl.exe (
+    set path=%BIN%\MSVC;%BIN%\MSBuild;!path!
  ) ELSE ( 
     set path=!WDKContentRoot!\bin\x86\arm;!path!
  )
@@ -206,7 +207,7 @@ if ERRORLEVEL 9009 if not ERRORLEVEL 9010 (
     GOTO:EOF
 )
 
-"!WDKContentRoot!\Tools\x64\ACPIVerify\asl.exe" > NUL 2>&1
+"%BIN%\asl.exe" > NUL 2>&1
 
 if ERRORLEVEL 9009 if not ERRORLEVEL 9010 ( 
     echo.
@@ -232,7 +233,7 @@ if exist %BLDFLDR%\pep.asl2 (
 for /f %%b in ('dir /b %BLDFLDR%\dsdt.asl') do (
     if not "%%~xb"==".aslc" (
         echo %%b
-        "!WDKContentRoot!\Tools\x64\ACPIVerify\asl.exe" /nologo /Fo="%ACPI_BUILD_OUTPUT%\%%~nb.aml" "%BLDFLDR%\%%~nb.asl"
+        "%BIN%\asl.exe" /nologo /Fo="%ACPI_BUILD_OUTPUT%\%%~nb.aml" "%BLDFLDR%\%%~nb.asl"
         if NOT ERRORLEVEL 0 GOTO:EOF
 	if ERRORLEVEL 1 GOTO:EOF
         %BIN%\cpfatfs.exe %ACPI_BUILD_OUTPUT%\fat16.bin ACPI "%ACPI_BUILD_OUTPUT%\%%~nb.aml" >NUL 2>&1

@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<!-- This is the Qualcomm.HID.props file for phone products. It defines macros for HIDs of all ACPI devices. -->
+  <PropertyGroup Condition="'$(QCPlatform)'=='8916'">
+    <HID_QcUsbFnSsFilter>QCOM01D0</HID_QcUsbFnSsFilter>
+    <HID_KMD_ISP10>QCOM0700</HID_KMD_ISP10>
+	<HID_AVSTREAM>QCOM0720</HID_AVSTREAM>
+	<HID_PMICKMDFTEST>QCOM0B30</HID_PMICKMDFTEST>
+		    <!-- HID not used in ACPI -->
+    <HID_Timer_Hal_Extension_for_Badger>QCOM100A</HID_Timer_Hal_Extension_for_Badger>
+	<HID_Timer_Hal_Extension_WatchdogtTimer>QCOM100B</HID_Timer_Hal_Extension_WatchdogtTimer>
+	<HID_CHIPINFO>QCOM1201</HID_CHIPINFO>
+	<HID_FM>QCOM2150</HID_FM>
+    <HID_MMU0>QCOM2400</HID_MMU0>
+    <HID_BAM0>QCOM2401</HID_BAM0>
+    <HID_SCM0>QCOM2402</HID_SCM0>
+    <HID_OMEM>QCOM2403</HID_OMEM>
+    <HID_SPMI>QCOM2404</HID_SPMI>
+    <HID_GIO0>QCOM2405</HID_GIO0>
+    <HID_DMUX>QCOM2406</HID_DMUX>
+    <HID_SMD0>QCOM2407</HID_SMD0>
+    <HID_SMSM>QCOM2408</HID_SMSM>
+    <!-- HID not used in ACPI -->
+    <HID_QCCIUM8974>QCOM2409</HID_QCCIUM8974>
+    <HID_IPC0>QCOM240A</HID_IPC0>
+    <HID_SMEM>QCOM240B</HID_SMEM>
+    <HID_SPI>QCOM240C</HID_SPI>
+    <HID_SLM1>QCOM240D</HID_SLM1>
+    <HID_I2C>QCOM240E</HID_I2C>
+    <HID_ADC1>QCOM240F</HID_ADC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCEPM8974>QCOM2410</HID_QCEPM8974>
+    <HID_ADC2>QCOM2411</HID_ADC2>
+    <HID_QDCI>QCOM2412</HID_QDCI>
+    <HID_QDIG>QCOM2413</HID_QDIG>
+    <HID_SSM>QCOM2414</HID_SSM>
+    <!-- HID not used in ACPI -->       
+    <HID_DIAGCSITESTDRIVER8974>QCOM2415</HID_DIAGCSITESTDRIVER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCHWNLED8974>QCOM2416</HID_QCHWNLED8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCKEYSCANNER8974>QCOM2417</HID_QCKEYSCANNER8974>
+    <HID_TSC1>QCOM2418</HID_TSC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCHAPTICS8974>QCOM2419</HID_QCHAPTICS8974>
+    <HID_PWIO>QCOM241A</HID_PWIO>
+    <!-- HID not used in ACPI -->
+    <HID_QCUSBFNFILTER8974>QCOM241B</HID_QCUSBFNFILTER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEHCIFILTER8974>QCOM241C</HID_QCEHCIFILTER8974>
+    <HID_QBCC>QCOM241D</HID_QBCC>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTHASH8974>QCOM241E</HID_QCBCRYPTHASH8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCERNG8974>QCOM241F</HID_QCERNG8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEARM8974>QCOM2420</HID_QCEARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCE2ARM8974>QCOM2421</HID_QCE2ARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTTEST8974>QCOM2422</HID_QCBCRYPTTEST8974>
+    <HID_RFS0>QCOM2423</HID_RFS0>
+    <HID_UART>QCOM2424</HID_UART>
+    <HID_PEP0>QCOM2425</HID_PEP0>
+    <HID_TMM0>QCOM2426</HID_TMM0>
+    <HID_PRXY>QCOM2427</HID_PRXY>
+    <HID_SDF1>QCOM2428</HID_SDF1>
+    <HID_PILC>QCOM2429</HID_PILC>
+    <HID_RIVA>QCOM242A</HID_RIVA>
+    <HID_ADSP>QCOM242B</HID_ADSP>
+    <HID_AMSS>QCOM242C</HID_AMSS>
+    <HID_ACD>QCOM242D</HID_ACD>
+    <HID_AUDD>QCOM242E</HID_AUDD>
+    <HID_ACDB_Driver>QCOM242F</HID_ACDB_Driver>
+    <HID_USB1>QCOM2430</HID_USB1>
+    <HID_ABD>QCOM2431</HID_ABD>
+    <HID_VFE0>QCOM2432</HID_VFE0>
+    <HID_CPP0>QCOM2433</HID_CPP0>
+    <HID_CAMS>QCOM2434</HID_CAMS>
+    <!-- HID not used in ACPI -->
+    <HID_Camera_Front_Sensor>QCOM2435</HID_Camera_Front_Sensor>
+    <!-- HID not used in ACPI -->
+    <HID_Web_Camera>QCOM2436</HID_Web_Camera>
+    <!-- HID not used in ACPI -->
+    <HID_2_Aptina_MT9M115_sensor>QCOM2437</HID_2_Aptina_MT9M115_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_3_Aptina_MT9M116_sensor>QCOM2438</HID_3_Aptina_MT9M116_sensor>
+    <HID_CAMF>QCOM2439</HID_CAMF>
+    <!-- HID not used in ACPI -->
+    <HID_5_Omnivision_OV2721_sensor>QCOM243A</HID_5_Omnivision_OV2721_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_6_Omnivision_OV2722_sensor>QCOM243B</HID_6_Omnivision_OV2722_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_7_Aptina_A8140_sensor>QCOM243C</HID_7_Aptina_A8140_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_8_Aptina_A8141_sensor>QCOM243D</HID_8_Aptina_A8141_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_9_Aptina_A8142_sensor>QCOM243E</HID_9_Aptina_A8142_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_10_Samsung_3L1_sensor>QCOM243F</HID_10_Samsung_3L1_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_11_Samsung_3L2_sensor>QCOM2440</HID_11_Samsung_3L2_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_12_Samsung_3L3_sensor>QCOM2441</HID_12_Samsung_3L3_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_13_Sony_IMX074_sensor>QCOM2442</HID_13_Sony_IMX074_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_14_Sony_IMX091_sensor>QCOM2443</HID_14_Sony_IMX091_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_15_Sony_IMX092_sensor>QCOM2444</HID_15_Sony_IMX092_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_16_Omnivision_OV5640_sensor>QCOM2445</HID_16_Omnivision_OV5640_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_17_Omnivision_OV5647_sensor>QCOM2446</HID_17_Omnivision_OV5647_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_18_Omnivision_OV5648_sensor>QCOM2447</HID_18_Omnivision_OV5648_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_19_Omnivision_OV8825_sensor>QCOM2448</HID_19_Omnivision_OV8825_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_20_Omnivision_OV8826_sensor>QCOM2449</HID_20_Omnivision_OV8826_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_21_Omnivision_OV8827_sensor>QCOM244A</HID_21_Omnivision_OV8827_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_FLSH>QCOM244B</HID_FLSH>
+    <!-- HID not used in ACPI -->
+    <HID_23_SEMTECH_SC629A_flash_driver>QCOM244C</HID_23_SEMTECH_SC629A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_24_SEMTECH_SC630A_flash_driver>QCOM244D</HID_24_SEMTECH_SC630A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_Volume_Key_Driver>QCOM244E</HID_Volume_Key_Driver>
+    <HID_QMUX>QCOM244F</HID_QMUX>
+    <!-- HID not used in ACPI -->
+    <HID_WLAN_Driver>QCOM2450</HID_WLAN_Driver>
+    <HID_QCRT>QCOM2451</HID_QCRT>
+    <HID_PMBM>QCOM2452</HID_PMBM>
+    <HID_PMBT>QCOM2453</HID_PMBT>
+    <HID_PBMS>QCOM2454</HID_PBMS>
+    <HID_PMIC>QCOM2455</HID_PMIC>
+    <!-- HID not used in ACPI -->
+    <HID_Pmic3p>QCOM2456</HID_Pmic3p>
+    <HID_PMAP>QCOM2457</HID_PMAP>
+    <HID_PM01>QCOM2458</HID_PM01>
+    <HID_PMPB>QCOM2459</HID_PMPB>
+    <!-- HID not used in ACPI -->
+    <HID_PMicTestSuite>QCOM245A</HID_PMicTestSuite>
+    <HID_CDI>QCOM245B</HID_CDI>
+    <HID_RPEN>QCOM245C</HID_RPEN>
+    <!-- HID not used in ACPI -->
+    <HID_Bluetooth_Device>QCOM245D</HID_Bluetooth_Device>
+    <HID_CAMP>QCOM245E</HID_CAMP>
+    <!-- HID not used in ACPI -->
+    <HID_CAMD_Driver_Test_Driver>QCOM245F</HID_CAMD_Driver_Test_Driver>
+    <HID_ACSP>QCOM2460</HID_ACSP>
+    <!-- HID not used in ACPI -->    
+    <HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>QCOM2461</HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>
+    <HID_FTM0>QCOM2462</HID_FTM0>
+    <HID_AVSD>QCOM2463</HID_AVSD>
+    <HID_AVSE>QCOM2464</HID_AVSE>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_Legacy>QCOM2465</HID_SDCC_Legacy>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_SDHC>QCOM2466</HID_SDCC_SDHC>
+    <HID_JPGE>QCOM2467</HID_JPGE>
+    <HID_MBHC>QCOM2468</HID_MBHC>
+    <HID_SNS1>QCOM2469</HID_SNS1>
+    <HID_ACC1>QCOM246A</HID_ACC1>
+    <HID_ALS1>QCOM246B</HID_ALS1>
+    <HID_GYR1>QCOM246C</HID_GYR1>
+    <HID_MAG1>QCOM246D</HID_MAG1>
+    <HID_PRX1>QCOM246E</HID_PRX1>
+    <HID_GPU0>QCOM246F</HID_GPU0>
+    <HID_TZ1>QCOM2470</HID_TZ1>
+    <HID_TZ2>QCOM2471</HID_TZ2>
+    <HID_TZ3>QCOM2472</HID_TZ3>
+    <HID_TZ4>QCOM2473</HID_TZ4>
+    <HID_TZ5>QCOM2474</HID_TZ5>
+    <HID_TZ6>QCOM2475</HID_TZ6>
+    <HID_TZ7>QCOM2476</HID_TZ7>
+    <HID_TZ8>QCOM2477</HID_TZ8>
+    <HID_TZ9>QCOM2478</HID_TZ9>
+    <HID_TZ10>QCOM2479</HID_TZ10>
+    <HID_TZ11>QCOM247A</HID_TZ11>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE1>QCOM247B</HID_PA_SENSE1>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE2>QCOM247C</HID_PA_SENSE2>
+    <!-- HID not used in ACPI -->    
+    <HID_QDSS>QCOM247D</HID_QDSS>
+    <HID_GNSS>QCOM247E</HID_GNSS>
+    <HID_WDFH>QCOM247F</HID_WDFH>
+    <!-- HID not used in ACPI -->    
+    <HID_remote_filesystem_access_driver_for_ADSP>QCOM2480</HID_remote_filesystem_access_driver_for_ADSP>
+    <!-- HID not used in ACPI -->    
+    <HID_bluetooth_uart_for_AR3002>QCOM2481</HID_bluetooth_uart_for_AR3002>
+    <HID_MBBT>QCOM2482</HID_MBBT>
+    <!-- HID not used in ACPI -->    
+    <HID_sensor_stub_driver_qcsensorstub8974_sys>QCOM2483</HID_sensor_stub_driver_qcsensorstub8974_sys>
+    <!-- HID not used in ACPI -->    
+    <HID_USB3_0_peripheral_mode_driver>QCOM2484</HID_USB3_0_peripheral_mode_driver>
+    <HID_MBB0>QCOM2485</HID_MBB0>
+    <!-- HID not used in ACPI -->    
+    <HID_Battery_current_limiting_function_device_in_pep>QCOM2486</HID_Battery_current_limiting_function_device_in_pep>
+    <!-- HID not used in ACPI -->    
+    <HID_LTE_COEX_Manager_Driver>QCOM2487</HID_LTE_COEX_Manager_Driver>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode>QCOM2488</HID_USB_HS2_core_device_device_mode>
+    <!-- HID not used in ACPI -->
+    <HID_pepstats_sys>QCOM2489</HID_pepstats_sys>
+    <!-- HID not used in ACPI -->
+    <HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>QCOM248A</HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>
+    <!-- HID not used in ACPI -->
+    <HID_QCDB>QCOM248B</HID_QCDB>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor1>QCOM248C</HID_PA_Thermal_Sensor1>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor2>QCOM248D</HID_PA_Thermal_Sensor2>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor3>QCOM248E</HID_PA_Thermal_Sensor3>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor4>QCOM248F</HID_PA_Thermal_Sensor4>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor5>QCOM2490</HID_PA_Thermal_Sensor5>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor6>QCOM2491</HID_PA_Thermal_Sensor6>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor7>QCOM2492</HID_PA_Thermal_Sensor7>
+    <!-- HID not used in ACPI -->
+    <HID_PA_Thermal_Sensor8>QCOM2493</HID_PA_Thermal_Sensor8>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode_gdr>QCOM2494</HID_USB_HS2_core_device_device_mode_gdr>
+    <HID_SEN1>QCOM2495</HID_SEN1>
+    <HID_QMMI>QCOM2496</HID_QMMI>
+    <HID_IMVR>QCOM2497</HID_IMVR>
+    <HID_MHCL>QCOM24A0</HID_MHCL>
+    <HID_AMSL>QCOM24A1</HID_AMSL>
+    <HID_HWN0>QCOM24A3</HID_HWN0>
+    <HID_HWN1>QCOM24A4</HID_HWN1>
+    <HID_UFS0>QCOM24A5</HID_UFS0>
+    <HID_HSIC>QCOM24A6</HID_HSIC>
+    <HID_LNKL>QCOM24A7</HID_LNKL>
+    <HID_TZ12>QCOM24A8</HID_TZ12>
+    <HID_TZ13>QCOM24A9</HID_TZ13>
+    <HID_TZ14>QCOM24AA</HID_TZ14>
+    <HID_TZ15>QCOM24AB</HID_TZ15>
+    <HID_TZ16>QCOM24AC</HID_TZ16>
+    <HID_TZ17>QCOM24AD</HID_TZ17>
+    <HID_TZ18>QCOM24AE</HID_TZ18>
+    <HID_TZ19>QCOM24AF</HID_TZ19>
+    <HID_IPA>QCOM24B0</HID_IPA>
+    <HID_FMSL>QCOM24B1</HID_FMSL>
+    <HID_BTUR>QCOM24B2</HID_BTUR>
+    <!--Driver: GPS-->
+    <HID_SHCI>QCOM24B3</HID_SHCI>
+    <HID_GPS>QCOM24B4</HID_GPS>   
+    <!-- Voltage based Battery Monitoring System -->    
+    <HID_BMSV>QCOM24B5</HID_BMSV>   
+    <!--USB Dual Role/ Role Switch -->
+    <HID_HRS0>QCOM24B6</HID_HRS0>   
+    <!--USB Dual Role/ Role Switch; -->
+    <HID_HRS1>QCOM24B7</HID_HRS1>
+    <!--Driver : QMI Service Manager will be a new device managed by qcsubsys.sys; -->
+    <HID_QSM>QCOM24B8</HID_QSM>
+    <!--Driver :for dummy HID for USB Chipidea  -->
+    <HID_USBD>QCOM24B9</HID_USBD>   
+    <!--Driver:TrEE Class Minidriver; -->
+    <HID_TREE>QCOM24BA</HID_TREE>  
+    <!--Driver : NFC; -->
+    <HID_NCI0>QCOM24BE</HID_NCI0>
+    <!--Driver : sdbus.sys;  CoreBSP Storage -->
+    <HID_SDCC>QCOM24BF</HID_SDCC>
+	<!--Driver :within the SUBSYS driver;  -->
+ 	<HID_CXTL>QCOM24C0</HID_CXTL>
+	 <!--Driver :within the SUBSYS driver;  -->
+	 <HID_SCSS>QCOM24C1</HID_SCSS>
+	 <!--Driver :WINPMIC;  -->
+	 <HID_PMBD>QCOM24C2</HID_PMBD>
+	 <!--Driver :Battery Miniclass; -->
+	 <HID_PBTD>QCOM24C3</HID_PBTD>
+	 <!--Driver :MIPI BIF Battery Authentication driver; -->
+	 <HID_PMBA>QCOM24C4</HID_PMBA>
+	 <!--Driver :DPLBridge Data driver for Data Protocol Accelaration on WP PLs; -->
+	 <HID_DPLB>QCOM24C5</HID_DPLB>
+	 <!--Driver :PMIC Test driver for implementing PMIC test cases; -->
+	 <HID_PMKT>QCOM24C6</HID_PMKT>
+	 <!--Driver :Touch Controller Drivers - Different touch drivers to support controllers from different vendors (Atmel, Synaptics, etc); -->
+	 <HID_TSC2>QCOM24C7</HID_TSC2>
+	 <HID_TSC3>QCOM24C8</HID_TSC3>
+	 <HID_TSC4>QCOM24C9</HID_TSC4>
+	 <!--Driver :Touch Detection Driver - Detects touch controller on boot up and loads corresponding touch driver;-->
+	 <HID_TDD1>QCOM24CA</HID_TDD1>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS16>QCOM24CB</HID_TSENS16>
+	 <HID_TSENS17>QCOM24CC</HID_TSENS17>
+	 <HID_TSENS18>QCOM24CD</HID_TSENS18>
+	 <HID_TSENS19>QCOM24CE</HID_TSENS19>
+	 <HID_TSENS20>QCOM24CF</HID_TSENS20>
+	 <!--Driver :System Settings Test Driver; -->
+	 <HID_SYST>QCOM24D0</HID_SYST>
+	 <!--Driver :Qualcomm Protection Domain Service Registry;  -->
+	 <HID_PDSR>QCOM24D1</HID_PDSR>
+	 <!--Driver :TDD Bus driver - Detects touch controller on boot up and loads corresponding touch driver; -->
+	 <HID_TDDB>QCOM24D2</HID_TDDB>
+	 <!--Driver :USB Type-C driver, supporting CC and PD signaling protocols; -->
+	 <HID_USBC>QCOM24D3</HID_USBC>
+<!--end of 8916-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(QCPlatform)'=='8998'">
+    <HID_QcUsbFnSsFilter>QCOM0000</HID_QcUsbFnSsFilter>
+    <HID_KMD_ISP10>QCOM0001</HID_KMD_ISP10>
+	<HID_AVSTREAM>QCOM0002</HID_AVSTREAM>	
+    <!-- HID not used in ACPI -->
+    <HID_BAMTEST>QCOM0003</HID_BAMTEST>
+	<HID_PMICKMDFTEST>QCOM0004</HID_PMICKMDFTEST>
+    <HID_PING>QCOM0005</HID_PING>
+    <HID_PONG>QCOM0006</HID_PONG>
+    <HID_DIAGCSITEST>QCOM0007</HID_DIAGCSITEST>
+    <HID_Timer_Hal_Extension_for_Badger>QCOM0008</HID_Timer_Hal_Extension_for_Badger>
+	<HID_Timer_Hal_Extension_WatchdogtTimer>QCOM0009</HID_Timer_Hal_Extension_WatchdogtTimer>
+	<HID_CHIPINFO>QCOM000A</HID_CHIPINFO>
+    <HID_SMD1>QCOM1F00</HID_SMD1>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCCI>QCOM1F01</HID_QCCI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCSI>QCOM1F02</HID_QCSI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SPMT>QCOM1F03</HID_SPMT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_GIOT>QCOM1F04</HID_GIOT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_IC01>QCOM1F05</HID_IC01>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_GLKT>QCOM1F06</HID_GLKT>	<!-- DONOT CHANGE THIS FOR NOW -->	
+    <HID_SPIT>QCOM1F11</HID_SPIT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SMDD>QCOM1F12</HID_SMDD>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SSBI>QCOM1F16</HID_SSBI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SBUS>QCOM1F17</HID_SBUS>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SCMT>QCOM1F0B</HID_SCMT>	<!-- DONOT CHANGE THIS FOR NOW -->	
+    <HID_QCET>QCOM1F0D</HID_QCET>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QBCT>QCOM000B</HID_QBCT>		
+    <HID_MBRG>QCOM000C</HID_MBRG>
+    <HID_RMNT>QCOM000D</HID_RMNT>
+	<HID_FM>QCOM000E</HID_FM>
+    <HID_RMAT>QCOM000F</HID_RMAT>
+    <HID_QATD>QCOM0010</HID_QATD>
+    <HID_MMU0>QCOM0011</HID_MMU0>
+    <HID_BAM0>QCOM0012</HID_BAM0>
+    <HID_SCM0>QCOM0013</HID_SCM0>
+    <HID_OMEM>QCOM0014</HID_OMEM>
+    <HID_SPMI>QCOM0015</HID_SPMI>
+    <HID_GIO0>QCOM0016</HID_GIO0>
+    <HID_DMUX>QCOM0017</HID_DMUX>
+    <HID_SMD0>QCOM0018</HID_SMD0>
+    <HID_SMSM>QCOM0019</HID_SMSM>
+    <!-- HID not used in ACPI -->
+    <HID_QCCIUM8974>QCOM001A</HID_QCCIUM8974>
+    <HID_IPC0>QCOM001B</HID_IPC0>
+    <HID_SMEM>QCOM001C</HID_SMEM>
+    <HID_SPI>QCOM001D</HID_SPI>
+    <HID_SLM1>QCOM001E</HID_SLM1>
+    <HID_I2C>QCOM001F</HID_I2C>
+    <HID_ADC1>QCOM0020</HID_ADC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCEPM8974>QCOM0021</HID_QCEPM8974>
+    <HID_ADC2>QCOM0022</HID_ADC2>
+    <HID_QDCI>QCOM0023</HID_QDCI>
+    <HID_QDIG>QCOM0024</HID_QDIG>
+    <HID_SSM>QCOM0025</HID_SSM>
+    <!-- HID not used in ACPI -->       
+    <HID_DIAGCSITESTDRIVER8974>QCOM0026</HID_DIAGCSITESTDRIVER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCHWNLED8974>QCOM0027</HID_QCHWNLED8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCKEYSCANNER8974>QCOM0028</HID_QCKEYSCANNER8974>
+    <HID_TSC1>QCOM0029</HID_TSC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCHAPTICS8974>QCOM002A</HID_QCHAPTICS8974>
+    <HID_PWIO>QCOM002B</HID_PWIO>
+    <!-- HID not used in ACPI -->
+    <HID_QCUSBFNFILTER8974>QCOM002C</HID_QCUSBFNFILTER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEHCIFILTER8974>QCOM002D</HID_QCEHCIFILTER8974>
+    <HID_QBCC>QCOM002E</HID_QBCC>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTHASH8974>QCOM002F</HID_QCBCRYPTHASH8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCERNG8974>QCOM0030</HID_QCERNG8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEARM8974>QCOM00F6</HID_QCEARM8974> 
+    <!-- HID not used in ACPI -->
+    <HID_QCE2ARM8974>QCOM0031</HID_QCE2ARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTTEST8974>QCOM0032</HID_QCBCRYPTTEST8974>
+    <HID_RFS0>QCOM0033</HID_RFS0>
+    <HID_UART>QCOM0034</HID_UART>
+    <HID_PEP0>QCOM0035</HID_PEP0>
+    <HID_TMM0>QCOM0036</HID_TMM0>
+    <HID_PRXY>QCOM0037</HID_PRXY>
+    <HID_SDF1>QCOM0038</HID_SDF1>
+	<HID_PILC Condition="'$(QCPlatform)'=='8998'">QCOM0039</HID_PILC>
+    <HID_RIVA>QCOM003A</HID_RIVA>
+    <HID_ADSP>QCOM003B</HID_ADSP>
+    <HID_AMSS Condition="'$(QCPlatform)'=='8998'">QCOM003C</HID_AMSS>
+    <HID_ACDB_Driver>QCOM003D</HID_ACDB_Driver>
+    <HID_USB1>QCOM2430</HID_USB1> 				<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <HID_ABD>QCOM003F</HID_ABD>
+    <HID_VFE0>QCOM0040</HID_VFE0>
+    <HID_CPP0>QCOM0041</HID_CPP0>
+    <HID_CAMS>QCOM0042</HID_CAMS>
+    <!-- HID not used in ACPI -->
+    <HID_Camera_Front_Sensor>QCOM0043</HID_Camera_Front_Sensor>
+    <!-- HID not used in ACPI -->
+    <HID_Web_Camera>QCOM0044</HID_Web_Camera>
+    <!-- HID not used in ACPI -->
+    <HID_2_Aptina_MT9M115_sensor>QCOM0045</HID_2_Aptina_MT9M115_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_3_Aptina_MT9M116_sensor>QCOM0046</HID_3_Aptina_MT9M116_sensor>
+    <HID_CAMF>QCOM0047</HID_CAMF>
+    <!-- HID not used in ACPI -->
+    <HID_5_Omnivision_OV2721_sensor>QCOM0048</HID_5_Omnivision_OV2721_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_6_Omnivision_OV2722_sensor>QCOM0049</HID_6_Omnivision_OV2722_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_7_Aptina_A8140_sensor>QCOM004A</HID_7_Aptina_A8140_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_8_Aptina_A8141_sensor>QCOM004B</HID_8_Aptina_A8141_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_9_Aptina_A8142_sensor>QCOM004C</HID_9_Aptina_A8142_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_10_Samsung_3L1_sensor>QCOM004D</HID_10_Samsung_3L1_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_11_Samsung_3L2_sensor>QCOM004E</HID_11_Samsung_3L2_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_12_Samsung_3L3_sensor>QCOM004F</HID_12_Samsung_3L3_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_13_Sony_IMX074_sensor>QCOM0050</HID_13_Sony_IMX074_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_14_Sony_IMX091_sensor>QCOM0051</HID_14_Sony_IMX091_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_15_Sony_IMX092_sensor>QCOM0052</HID_15_Sony_IMX092_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_16_Omnivision_OV5640_sensor>QCOM0053</HID_16_Omnivision_OV5640_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_17_Omnivision_OV5647_sensor>QCOM0054</HID_17_Omnivision_OV5647_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_18_Omnivision_OV5648_sensor>QCOM0055</HID_18_Omnivision_OV5648_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_19_Omnivision_OV8825_sensor>QCOM0056</HID_19_Omnivision_OV8825_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_20_Omnivision_OV8826_sensor>QCOM0057</HID_20_Omnivision_OV8826_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_21_Omnivision_OV8827_sensor>QCOM0058</HID_21_Omnivision_OV8827_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_FLSH>QCOM0059</HID_FLSH>
+    <!-- HID not used in ACPI -->
+    <HID_23_SEMTECH_SC629A_flash_driver>QCOM005A</HID_23_SEMTECH_SC629A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_24_SEMTECH_SC630A_flash_driver>QCOM005B</HID_24_SEMTECH_SC630A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_Volume_Key_Driver>QCOM005C</HID_Volume_Key_Driver>
+    <HID_QMUX>QCOM005D</HID_QMUX>
+    <!-- HID not used in ACPI -->
+    <HID_WLAN_Driver>QCOM005E</HID_WLAN_Driver>
+    <HID_QCRT>QCOM005F</HID_QCRT>
+    <HID_PMBM>QCOM0060</HID_PMBM>
+    <HID_PMBT>QCOM0061</HID_PMBT>
+    <HID_PBMS>QCOM0062</HID_PBMS>
+    <HID_PMIC>QCOM0063</HID_PMIC>
+    <!-- HID not used in ACPI -->
+    <HID_Pmic3p>QCOM0064</HID_Pmic3p>
+    <HID_PMAP>QCOM0065</HID_PMAP>
+    <HID_PM01>QCOM0066</HID_PM01>
+    <HID_PMPB>QCOM0067</HID_PMPB>
+    <!-- HID not used in ACPI -->
+    <HID_PMicTestSuite>QCOM0068</HID_PMicTestSuite>
+    <HID_CDI>QCOM0069</HID_CDI>
+    <HID_RPEN>QCOM006A</HID_RPEN>
+    <!-- HID not used in ACPI -->
+    <HID_Bluetooth_Device>QCOM006B</HID_Bluetooth_Device>
+    <HID_CAMP>QCOM006C</HID_CAMP>
+    <!-- HID not used in ACPI -->
+    <HID_CAMD_Driver_Test_Driver>QCOM006D</HID_CAMD_Driver_Test_Driver>
+    <!-- HID not used in ACPI -->    
+    <HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>QCOM006E</HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>
+    <HID_FTM0>QCOM006F</HID_FTM0>
+    <HID_AVSD>QCOM0070</HID_AVSD>
+    <HID_AVSE>QCOM0071</HID_AVSE>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_Legacy>QCOM2465</HID_SDCC_Legacy> 	<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_SDHC>QCOM2466</HID_SDCC_SDHC>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_JPGE>QCOM0074</HID_JPGE>
+    <HID_MBHC>QCOM0075</HID_MBHC>
+    <HID_SNS1>QCOM0076</HID_SNS1>
+    <HID_ACC1>QCOM0077</HID_ACC1>
+    <HID_ALS1>QCOM0078</HID_ALS1>
+    <HID_GYR1>QCOM0079</HID_GYR1>
+    <HID_MAG1>QCOM007A</HID_MAG1>
+    <HID_PRX1>QCOM007B</HID_PRX1>
+    <HID_GPU0>QCOM007C</HID_GPU0>
+    <HID_TSENS0>QCOM007D</HID_TSENS0>
+    <HID_TSENS1>QCOM007E</HID_TSENS1>
+    <HID_TSENS2>QCOM007F</HID_TSENS2>
+    <HID_TSENS3>QCOM0080</HID_TSENS3>
+    <HID_TSENS4>QCOM0081</HID_TSENS4>
+    <HID_TSENS5>QCOM0082</HID_TSENS5>
+    <HID_TSENS6>QCOM0083</HID_TSENS6>
+    <HID_TSENS7>QCOM0084</HID_TSENS7>
+    <HID_TSENS8>QCOM0085</HID_TSENS8>
+    <HID_TSENS9>QCOM0086</HID_TSENS9>
+    <HID_TSENS10>QCOM0087</HID_TSENS10>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE1>QCOM0088</HID_PA_SENSE1>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE2>QCOM0089</HID_PA_SENSE2>
+    <!-- HID not used in ACPI -->    
+    <HID_QDSS>QCOM008A</HID_QDSS>
+    <HID_GNSS>QCOM008B</HID_GNSS>
+    <HID_WDFH>QCOM008C</HID_WDFH>
+    <!-- HID not used in ACPI -->    
+    <HID_remote_filesystem_access_driver_for_ADSP>QCOM008D</HID_remote_filesystem_access_driver_for_ADSP>
+    <!-- HID not used in ACPI -->    
+    <HID_bluetooth_uart_for_AR3002>QCOM008E</HID_bluetooth_uart_for_AR3002>
+    <HID_MBBT>QCOM008F</HID_MBBT>
+    <!-- HID not used in ACPI -->    
+    <HID_sensor_stub_driver_qcsensorstub8974_sys>QCOM0090</HID_sensor_stub_driver_qcsensorstub8974_sys>
+    <!-- HID not used in ACPI -->    
+    <HID_UFN0>QCOM2484</HID_UFN0> 			<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <HID_MBB0>QCOM0092</HID_MBB0>
+    <!-- HID not used in ACPI -->    
+    <HID_TZ_BCL>QCOM0093</HID_TZ_BCL>
+    <!-- HID not used in ACPI -->    
+    <HID_LTE_COEX_Manager_Driver>QCOM0094</HID_LTE_COEX_Manager_Driver>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_UFN1>QCOM2488</HID_UFN1> 			<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <!-- HID not used in ACPI -->
+    <HID_pepstats_sys>QCOM0096</HID_pepstats_sys>
+    <!-- HID not used in ACPI -->
+    <HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>QCOM0097</HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>
+    <!-- HID not used in ACPI -->
+    <HID_QCDB>QCOM0098</HID_QCDB>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS0>QCOM0099</HID_VADC_SENS0>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS1>QCOM009A</HID_VADC_SENS1>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS2>QCOM009B</HID_VADC_SENS2>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS3>QCOM009C</HID_VADC_SENS3>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS4>QCOM009D</HID_VADC_SENS4>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS5>QCOM009E</HID_VADC_SENS5>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS6>QCOM009F</HID_VADC_SENS6>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS7>QCOM00A0</HID_VADC_SENS7>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode_gdr>QCOM00A1</HID_USB_HS2_core_device_device_mode_gdr>
+    <HID_SEN1>QCOM00A2</HID_SEN1>
+    <HID_QMMI>QCOM00A3</HID_QMMI>
+    <HID_IMVR>QCOM00A4</HID_IMVR>
+    <HID_RVRM>QCOM00A5</HID_RVRM>
+    <HID_MHCL>QCOM00A6</HID_MHCL>
+    <HID_AMSL>QCOM00A7</HID_AMSL>
+    <HID_HWN0>QCOM00A8</HID_HWN0>
+    <HID_HWN1>QCOM00A9</HID_HWN1>
+    <HID_UFS0>QCOM24A5</HID_UFS0>  		<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_HSIC>QCOM24A6</HID_HSIC>		<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_LNKL>QCOM00AC</HID_LNKL>
+    <HID_TSENS11>QCOM00AD</HID_TSENS11>
+    <HID_TSENS12>QCOM00AE</HID_TSENS12>
+    <HID_TSENS13>QCOM00AF</HID_TSENS13>
+    <HID_TSENS14>QCOM00B0</HID_TSENS14>
+    <HID_TSENS15>QCOM00B1</HID_TSENS15>
+    <HID_TZ_LITTLE_CPU_VIRT>QCOM00B2</HID_TZ_LITTLE_CPU_VIRT>
+    <HID_TZ_BIG_CPU_VIRT>QCOM00B3</HID_TZ_BIG_CPU_VIRT>
+    <HID_TZ_CRT_TEMP_VIRT>QCOM00B4</HID_TZ_CRT_TEMP_VIRT>
+    <HID_IPA>QCOM00B5</HID_IPA>
+    <HID_FMSL>QCOM00B6</HID_FMSL>
+    <HID_BTUR>QCOM00B7</HID_BTUR>
+    <!--Driver: GPS; -->
+    <HID_SHCI>QCOM24B3</HID_SHCI>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_GPS>QCOM00B9</HID_GPS>   
+    <!-- Voltage based Battery Monitoring System; -->    
+    <HID_BMSV>QCOM00BA</HID_BMSV>   
+    <!--USB Dual Role/ Role Switch;  -->
+    <HID_HRS0>QCOM24B6</HID_HRS0>   <!-- DONOT CHANGE THIS NOW OR IN FUTURE. MSFT MAINTAINS THIS VALUE AND DOESN'T NEED TO CHANGE FOR EACH TARGET. -->
+    <!--USB Dual Role/ Role Switch;  -->
+    <HID_HRS1>QCOM00BC</HID_HRS1>
+    <!--Driver : QMI Service Manager will be a new device managed by qcsubsys.sys; -->
+    <HID_QSM>QCOM00BD</HID_QSM>
+    <!--Driver :for dummy HID for USB Chipidea ;-->
+    <HID_USBD>QCOM00BE</HID_USBD>   
+    <!--Driver:TrEE Class Minidriver; -->
+    <HID_TREE>QCOM00BF</HID_TREE>  
+    <!--Driver : NFC; -->
+    <HID_NCI0>QCOM00C0</HID_NCI0>
+    <!--Driver : sdbus.sys; -->
+    <HID_SDCC>QCOM24BF</HID_SDCC>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+	<!--Driver :within the SUBSYS driver;   -->
+ 	<HID_CXTL>QCOM00C2</HID_CXTL>
+	 <!--Driver :within the SUBSYS driver;   -->
+	 <HID_SCSS>QCOM00C3</HID_SCSS>
+	 <!--Driver :WINPMIC;  -->
+	 <HID_PMBD>QCOM00C4</HID_PMBD>
+	 <!--Driver :Battery Miniclass;   -->
+	 <HID_PBTD>QCOM00C5</HID_PBTD>
+	 <!--Driver :MIPI BIF Battery Authentication driver;    -->
+	 <HID_PMBA>QCOM00C6</HID_PMBA>
+	 <!--Driver :DPLBridge Data driver for Data Protocol Accelaration on WP PLs;  -->
+	 <HID_DPLB>QCOM00C7</HID_DPLB>
+	 <!--Driver :PMIC Test driver for implementing PMIC test cases; -->
+	 <HID_PMKT>QCOM00C8</HID_PMKT>
+	 <!--Driver :Touch Controller Drivers - Different touch drivers to support controllers from different vendors (Atmel, Synaptics, etc);  -->
+	 <HID_TSC2>QCOM00C9</HID_TSC2>
+	 <HID_TSC3>QCOM00CA</HID_TSC3>
+	 <HID_TSC4>QCOM00CB</HID_TSC4>
+	 <!--Driver :Touch Detection Driver - Detects touch controller on boot up and loads corresponding touch driver; -->
+	 <HID_TDD1>QCOM00CC</HID_TDD1>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS16>QCOM00CD</HID_TSENS16>
+	 <HID_TSENS17>QCOM00CE</HID_TSENS17>
+	 <HID_TSENS18>QCOM00CF</HID_TSENS18>
+	 <HID_TSENS19>QCOM00D0</HID_TSENS19>
+	 <HID_TSENS20>QCOM00D1</HID_TSENS20>
+	 <!--Driver :System Settings Test Driver;  -->
+	 <HID_SYST>QCOM00D2</HID_SYST>
+	 <!--Driver :Qualcomm Protection Domain Service Registry;  -->
+	 <HID_PDSR>QCOM00D3</HID_PDSR>
+	 <!--Driver :TDD Bus driver - Detects touch controller on boot up and loads corresponding touch driver;  -->
+	 <HID_TDDB>QCOM00D4</HID_TDDB>
+	 <!--Driver :USB Type-C driver, supporting CC and PD signaling protocols;  -->
+	 <HID_USBC>QCOM00D5</HID_USBC>
+	 <!--Driver :Qualcomm Subsystem Driver; -->
+	 <HID_SSDD>QCOM00D6</HID_SSDD>
+	 <!--Driver :RHProxy - Resource Hub Proxy driver for enabling user mode access to SPB devices;  -->
+	 <HID_RHPX>QCOM00D7</HID_RHPX>
+	 <!--Driver :pmicEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_PEIC>QCOM00D8</HID_PEIC>
+	 <!--Driver :battmngrEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_BEIC>QCOM00D9</HID_BEIC>
+	 <!--Driver :QualcommUltrasonicFingerprintSensor - New component added to main/latest to support qcQfpDriver8996.dll ;  -->
+	 <HID_QFPS>QCOM00DA</HID_QFPS>
+	 <!--Driver :FGBCl - to implement lower level bcl features such as setting threshold, register for battery current, vbatt, vph_pwr critical events to notify pep and to poll lmh, plm and bob status for logging and debugging; -->
+	 <HID_BCL1>QCOM00DB</HID_BCL1>
+	 <!--Driver :qcsmmu8953, New driver for qcsmmu in 8953;  -->
+	 <HID_QMMU>QCOM00DC</HID_QMMU>
+	 <!--Driver :smmutestclient8953, New test driver for smmu500 in 8953; -->
+	 <HID_TMMU>QCOM00DD</HID_TMMU>
+	 <!--Driver :qcECFWUpdateDriver, Works alongside a user-mode app (qcECFWUpdateApp.exe) to flash firmware onto the Clamshell device;  -->
+	 <HID_ECFW>QCOM00DE</HID_ECFW>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS21>QCOM00DF</HID_TSENS21>
+	 <HID_TSENS22>QCOM00E0</HID_TSENS22>
+	 <HID_TSENS23>QCOM00E1</HID_TSENS23>
+	 <HID_TSENS24>QCOM00E2</HID_TSENS24>
+	 <HID_TSENS25>QCOM00E3</HID_TSENS25>
+	 <HID_TSENS26>QCOM00E4</HID_TSENS26>
+	 <HID_TSENS27>QCOM00E5</HID_TSENS27>
+	 <HID_TSENS28>QCOM00E6</HID_TSENS28>
+	 <HID_TSENS29>QCOM00E7</HID_TSENS29>
+	 <HID_TSENS30>QCOM00E8</HID_TSENS30>
+	 <!--Driver :QWPP;  -->
+	 <HID_QWPP>QCOM00E9</HID_QWPP>
+	 <HID_WLAN>QCOM00EA</HID_WLAN>
+	 <!--Driver :qcpmictcc8998.sys; -->
+	 <HID_PTCC>QCOM00EB</HID_PTCC>
+	 <HID_GSI>QCOM00EC</HID_GSI>
+	 <!--Driver: MIPI CSI - the MIPI camera serial interface (CSI) and PHY decoder. Needed for 8996 64-bit & 8998 PLs. -->
+	 <HID_MPCS>QCOM00ED</HID_MPCS>
+         <HID_BUSPM>QCOM00EE</HID_BUSPM>
+	<HID_BUSPMLOG>QCOM00EF</HID_BUSPMLOG>
+	<HID_DisplayALECalibrationDriver>QCOM00F0</HID_DisplayALECalibrationDriver>
+	<HID_OEMPANEL>QCOM00F1</HID_OEMPANEL>
+	<HID_QCAppProfiler>QCOM00F2</HID_QCAppProfiler>
+	 <!-- Additional HIDs for VADC channels  -->
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS8>QCOM00F3</HID_VADC_SENS8>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS9>QCOM00F4</HID_VADC_SENS9>
+	<HID_DBUS>QCOM00F5</HID_DBUS>
+    <!-- QCOM00F6 Value allocated in top   -->
+	<HID_MBBQBI>QCOM00F7</HID_MBBQBI>
+	<HID_MBB>QCOM0EA0</HID_MBB>
+	<HID_ARPD>QCOM00F8</HID_ARPD>
+	<!-- QCOM00F9 Value allocated other value for below 850 chipset   -->	
+    <HID_ACD>QCOM00FA</HID_ACD>
+    <HID_AUDD>QCOM00FB</HID_AUDD>
+    <HID_ACSP>QCOM00FC</HID_ACSP>
+	<!--  Improve Touch driver -->
+	<HID_TSC5>QCOM00FD</HID_TSC5>
+	<HID_TFTP>QCOM00FE</HID_TFTP>
+	<HID_GLNK>QCOM00FF</HID_GLNK>
+	<HID_PTD0>QCOM0100</HID_PTD0>
+	<HID_PTD1>QCOM0101</HID_PTD1>
+	<HID_PTD2>QCOM0102</HID_PTD2>	
+	<HID_11AD>QCOM0103</HID_11AD>
+	<HID_QRNG>QCOM0104</HID_QRNG>
+	<HID_USBA>QCOM0105</HID_USBA>	
+	<!-- Driver qSarMgr8998.sys -->
+	<HID_SARM>QCOM0106</HID_SARM>
+	<!-- Driver qcshutdownsvc8998.dll -->
+	<HID_SSVC>QCOM0107</HID_SSVC>	
+	<!-- audioservice.dll -->
+	<HID_AUDS>QCOM0108</HID_AUDS>
+<!--end of 8998-->
+</PropertyGroup>
+<PropertyGroup Condition="'$(QCPlatform)'=='8996'">
+    <HID_QcUsbFnSsFilter>QCOM01D0</HID_QcUsbFnSsFilter>
+    <HID_KMD_ISP10>QCOM0700</HID_KMD_ISP10>
+	<HID_AVSTREAM>QCOM0720</HID_AVSTREAM>	
+    <!-- HID not used in ACPI -->
+    <HID_BAMTEST>QCOM09FF</HID_BAMTEST>
+	<HID_PMICKMDFTEST>QCOM0B30</HID_PMICKMDFTEST>
+    <HID_PING>QCOM0E32</HID_PING>
+    <HID_PONG>QCOM0E33</HID_PONG>
+    <HID_DIAGCSITEST>QCOM0F82</HID_DIAGCSITEST>
+    <HID_Timer_Hal_Extension_for_Badger>QCOM100A</HID_Timer_Hal_Extension_for_Badger>
+	<HID_Timer_Hal_Extension_WatchdogtTimer>QCOM100B</HID_Timer_Hal_Extension_WatchdogtTimer>
+	<HID_CHIPINFO>QCOM1201</HID_CHIPINFO>
+    <HID_SMD1>QCOM1F00</HID_SMD1>
+    <HID_QCCI>QCOM1F01</HID_QCCI>
+    <HID_QCSI>QCOM1F02</HID_QCSI>
+    <HID_SPMT>QCOM1F03</HID_SPMT>
+    <HID_GIOT>QCOM1F04</HID_GIOT>
+    <HID_IC01>QCOM1F05</HID_IC01>
+    <HID_SPIT>QCOM1F11</HID_SPIT>
+    <HID_SMDD>QCOM1F12</HID_SMDD>
+    <HID_SSBI>QCOM1F16</HID_SSBI>
+    <HID_SBUS>QCOM1F17</HID_SBUS>
+    <HID_SCMT>QCOM1F0B</HID_SCMT>	
+    <HID_QCET>QCOM1F0D</HID_QCET>	
+    <HID_QBCT>QCOM2056</HID_QBCT>		
+    <HID_MBRG>QCOM2145</HID_MBRG>
+    <HID_RMNT>QCOM2148</HID_RMNT>
+	<HID_FM>QCOM2150</HID_FM>
+    <HID_RMAT>QCOM2155</HID_RMAT>
+    <HID_QATD>QCOM2156</HID_QATD>
+    <HID_MMU0>QCOM2400</HID_MMU0>
+    <HID_BAM0>QCOM2401</HID_BAM0>
+    <HID_SCM0>QCOM2402</HID_SCM0>
+    <HID_OMEM>QCOM2403</HID_OMEM>
+    <HID_SPMI>QCOM2404</HID_SPMI>
+    <HID_GIO0>QCOM2405</HID_GIO0>
+    <HID_DMUX>QCOM2406</HID_DMUX>
+    <HID_SMD0>QCOM2407</HID_SMD0>
+    <HID_SMSM>QCOM2408</HID_SMSM>
+    <!-- HID not used in ACPI -->
+    <HID_QCCIUM8974>QCOM2409</HID_QCCIUM8974>
+    <HID_IPC0>QCOM240A</HID_IPC0>
+    <HID_SMEM>QCOM240B</HID_SMEM>
+    <HID_SPI>QCOM240C</HID_SPI>
+    <HID_SLM1>QCOM240D</HID_SLM1>
+    <HID_I2C>QCOM240E</HID_I2C>
+    <HID_ADC1>QCOM240F</HID_ADC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCEPM8974>QCOM2410</HID_QCEPM8974>
+    <HID_ADC2>QCOM2411</HID_ADC2>
+    <HID_QDCI>QCOM2412</HID_QDCI>
+    <HID_QDIG>QCOM2413</HID_QDIG>
+    <HID_SSM>QCOM2414</HID_SSM>
+    <!-- HID not used in ACPI -->       
+    <HID_DIAGCSITESTDRIVER8974>QCOM2415</HID_DIAGCSITESTDRIVER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCHWNLED8974>QCOM2416</HID_QCHWNLED8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCKEYSCANNER8974>QCOM2417</HID_QCKEYSCANNER8974>
+    <HID_TSC1>QCOM2418</HID_TSC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCHAPTICS8974>QCOM2419</HID_QCHAPTICS8974>
+    <HID_PWIO>QCOM241A</HID_PWIO>
+    <!-- HID not used in ACPI -->
+    <HID_QCUSBFNFILTER8974>QCOM241B</HID_QCUSBFNFILTER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEHCIFILTER8974>QCOM241C</HID_QCEHCIFILTER8974>
+    <HID_QBCC>QCOM241D</HID_QBCC>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTHASH8974>QCOM241E</HID_QCBCRYPTHASH8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCERNG8974>QCOM241F</HID_QCERNG8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEARM8974>QCOM2420</HID_QCEARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCE2ARM8974>QCOM2421</HID_QCE2ARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTTEST8974>QCOM2422</HID_QCBCRYPTTEST8974>
+    <HID_RFS0>QCOM2423</HID_RFS0>
+    <HID_UART>QCOM2424</HID_UART>
+    <HID_PEP0>QCOM2425</HID_PEP0>
+    <HID_TMM0>QCOM2426</HID_TMM0>
+    <HID_PRXY>QCOM2427</HID_PRXY>
+    <HID_SDF1>QCOM2428</HID_SDF1>
+    <HID_PILC>QCOM2429</HID_PILC>
+    <HID_RIVA>QCOM242A</HID_RIVA>
+    <HID_ADSP>QCOM242B</HID_ADSP>
+    <HID_AMSS>QCOM242C</HID_AMSS>
+    <HID_ACD>QCOM242D</HID_ACD>
+    <HID_AUDD>QCOM242E</HID_AUDD>
+    <HID_ACDB_Driver>QCOM242F</HID_ACDB_Driver>
+    <HID_USB1>QCOM2430</HID_USB1>
+    <HID_ABD>QCOM2431</HID_ABD>
+    <HID_VFE0>QCOM2432</HID_VFE0>
+    <HID_CPP0>QCOM2433</HID_CPP0>
+    <HID_CAMS>QCOM2434</HID_CAMS>
+    <!-- HID not used in ACPI -->
+    <HID_Camera_Front_Sensor>QCOM2435</HID_Camera_Front_Sensor>
+    <!-- HID not used in ACPI -->
+    <HID_Web_Camera>QCOM2436</HID_Web_Camera>
+    <!-- HID not used in ACPI -->
+    <HID_2_Aptina_MT9M115_sensor>QCOM2437</HID_2_Aptina_MT9M115_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_3_Aptina_MT9M116_sensor>QCOM2438</HID_3_Aptina_MT9M116_sensor>
+    <HID_CAMF>QCOM2439</HID_CAMF>
+    <!-- HID not used in ACPI -->
+    <HID_5_Omnivision_OV2721_sensor>QCOM243A</HID_5_Omnivision_OV2721_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_6_Omnivision_OV2722_sensor>QCOM243B</HID_6_Omnivision_OV2722_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_7_Aptina_A8140_sensor>QCOM243C</HID_7_Aptina_A8140_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_8_Aptina_A8141_sensor>QCOM243D</HID_8_Aptina_A8141_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_9_Aptina_A8142_sensor>QCOM243E</HID_9_Aptina_A8142_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_10_Samsung_3L1_sensor>QCOM243F</HID_10_Samsung_3L1_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_11_Samsung_3L2_sensor>QCOM2440</HID_11_Samsung_3L2_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_12_Samsung_3L3_sensor>QCOM2441</HID_12_Samsung_3L3_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_13_Sony_IMX074_sensor>QCOM2442</HID_13_Sony_IMX074_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_14_Sony_IMX091_sensor>QCOM2443</HID_14_Sony_IMX091_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_15_Sony_IMX092_sensor>QCOM2444</HID_15_Sony_IMX092_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_16_Omnivision_OV5640_sensor>QCOM2445</HID_16_Omnivision_OV5640_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_17_Omnivision_OV5647_sensor>QCOM2446</HID_17_Omnivision_OV5647_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_18_Omnivision_OV5648_sensor>QCOM2447</HID_18_Omnivision_OV5648_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_19_Omnivision_OV8825_sensor>QCOM2448</HID_19_Omnivision_OV8825_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_20_Omnivision_OV8826_sensor>QCOM2449</HID_20_Omnivision_OV8826_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_21_Omnivision_OV8827_sensor>QCOM244A</HID_21_Omnivision_OV8827_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_FLSH>QCOM244B</HID_FLSH>
+    <!-- HID not used in ACPI -->
+    <HID_23_SEMTECH_SC629A_flash_driver>QCOM244C</HID_23_SEMTECH_SC629A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_24_SEMTECH_SC630A_flash_driver>QCOM244D</HID_24_SEMTECH_SC630A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_Volume_Key_Driver>QCOM244E</HID_Volume_Key_Driver>
+    <HID_QMUX>QCOM244F</HID_QMUX>
+    <!-- HID not used in ACPI -->
+    <HID_WLAN_Driver>QCOM2450</HID_WLAN_Driver>
+    <HID_QCRT>QCOM2451</HID_QCRT>
+    <HID_PMBM>QCOM2452</HID_PMBM>
+    <HID_PMBT>QCOM2453</HID_PMBT>
+    <HID_PBMS>QCOM2454</HID_PBMS>
+    <HID_PMIC>QCOM2455</HID_PMIC>
+    <!-- HID not used in ACPI -->
+    <HID_Pmic3p>QCOM2456</HID_Pmic3p>
+    <HID_PMAP>QCOM2457</HID_PMAP>
+    <HID_PM01>QCOM2458</HID_PM01>
+    <HID_PMPB>QCOM2459</HID_PMPB>
+    <!-- HID not used in ACPI -->
+    <HID_PMicTestSuite>QCOM245A</HID_PMicTestSuite>
+    <HID_CDI>QCOM245B</HID_CDI>
+    <HID_RPEN>QCOM245C</HID_RPEN>
+    <!-- HID not used in ACPI -->
+    <HID_Bluetooth_Device>QCOM245D</HID_Bluetooth_Device>
+    <HID_CAMP>QCOM245E</HID_CAMP>
+    <!-- HID not used in ACPI -->
+    <HID_CAMD_Driver_Test_Driver>QCOM245F</HID_CAMD_Driver_Test_Driver>
+    <HID_ACSP>QCOM2460</HID_ACSP>
+    <!-- HID not used in ACPI -->    
+    <HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>QCOM2461</HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>
+    <HID_FTM0>QCOM2462</HID_FTM0>
+    <HID_AVSD>QCOM2463</HID_AVSD>
+    <HID_AVSE>QCOM2464</HID_AVSE>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_Legacy>QCOM2465</HID_SDCC_Legacy>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_SDHC>QCOM2466</HID_SDCC_SDHC>
+    <HID_JPGE>QCOM2467</HID_JPGE>
+    <HID_MBHC>QCOM2468</HID_MBHC>
+    <HID_SNS1>QCOM2469</HID_SNS1>
+    <HID_ACC1>QCOM246A</HID_ACC1>
+    <HID_ALS1>QCOM246B</HID_ALS1>
+    <HID_GYR1>QCOM246C</HID_GYR1>
+    <HID_MAG1>QCOM246D</HID_MAG1>
+    <HID_PRX1>QCOM246E</HID_PRX1>
+    <HID_GPU0>QCOM246F</HID_GPU0>
+    <HID_TSENS0>QCOM2470</HID_TSENS0>
+    <HID_TSENS1>QCOM2471</HID_TSENS1>
+    <HID_TSENS2>QCOM2472</HID_TSENS2>
+    <HID_TSENS3>QCOM2473</HID_TSENS3>
+    <HID_TSENS4>QCOM2474</HID_TSENS4>
+    <HID_TSENS5>QCOM2475</HID_TSENS5>
+    <HID_TSENS6>QCOM2476</HID_TSENS6>
+    <HID_TSENS7>QCOM2477</HID_TSENS7>
+    <HID_TSENS8>QCOM2478</HID_TSENS8>
+    <HID_TSENS9>QCOM2479</HID_TSENS9>
+    <HID_TSENS10>QCOM247A</HID_TSENS10>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE1>QCOM247B</HID_PA_SENSE1>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE2>QCOM247C</HID_PA_SENSE2>
+    <!-- HID not used in ACPI -->    
+    <HID_QDSS>QCOM247D</HID_QDSS>
+    <HID_GNSS>QCOM247E</HID_GNSS>
+    <HID_WDFH>QCOM247F</HID_WDFH>
+    <!-- HID not used in ACPI -->    
+    <HID_remote_filesystem_access_driver_for_ADSP>QCOM2480</HID_remote_filesystem_access_driver_for_ADSP>
+    <!-- HID not used in ACPI -->    
+    <HID_bluetooth_uart_for_AR3002>QCOM2481</HID_bluetooth_uart_for_AR3002>
+    <HID_MBBT>QCOM2482</HID_MBBT>
+    <!-- HID not used in ACPI -->    
+    <HID_sensor_stub_driver_qcsensorstub8974_sys>QCOM2483</HID_sensor_stub_driver_qcsensorstub8974_sys>
+    <!-- HID not used in ACPI -->    
+    <HID_USB3_0_peripheral_mode_driver>QCOM2484</HID_USB3_0_peripheral_mode_driver>
+    <HID_MBB0>QCOM2485</HID_MBB0>
+    <!-- HID not used in ACPI -->    
+    <HID_TZ_BCL>QCOM2486</HID_TZ_BCL>
+    <!-- HID not used in ACPI -->    
+    <HID_LTE_COEX_Manager_Driver>QCOM2487</HID_LTE_COEX_Manager_Driver>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode>QCOM2488</HID_USB_HS2_core_device_device_mode>
+    <!-- HID not used in ACPI -->
+    <HID_pepstats_sys>QCOM2489</HID_pepstats_sys>
+    <!-- HID not used in ACPI -->
+    <HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>QCOM248A</HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>
+    <!-- HID not used in ACPI -->
+    <HID_QCDB>QCOM248B</HID_QCDB>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS0>QCOM248C</HID_VADC_SENS0>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS1>QCOM248D</HID_VADC_SENS1>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS2>QCOM248E</HID_VADC_SENS2>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS3>QCOM248F</HID_VADC_SENS3>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS4>QCOM2490</HID_VADC_SENS4>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS5>QCOM2491</HID_VADC_SENS5>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS6>QCOM2492</HID_VADC_SENS6>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS7>QCOM2493</HID_VADC_SENS7>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode_gdr>QCOM2494</HID_USB_HS2_core_device_device_mode_gdr>
+    <HID_SEN1>QCOM2495</HID_SEN1>
+    <HID_QMMI>QCOM2496</HID_QMMI>
+    <HID_IMVR>QCOM2497</HID_IMVR>
+    <HID_RVRM>QCOM2498</HID_RVRM>
+    <HID_MHCL>QCOM24A0</HID_MHCL>
+    <HID_AMSL>QCOM24A1</HID_AMSL>
+    <HID_HWN0>QCOM24A3</HID_HWN0>
+    <HID_HWN1>QCOM24A4</HID_HWN1>
+    <HID_UFS0>QCOM24A5</HID_UFS0>
+    <HID_HSIC>QCOM24A6</HID_HSIC>
+    <HID_LNKL>QCOM24A7</HID_LNKL>
+    <HID_TSENS11>QCOM24A8</HID_TSENS11>
+    <HID_TSENS12>QCOM24A9</HID_TSENS12>
+    <HID_TSENS13>QCOM24AA</HID_TSENS13>
+    <HID_TSENS14>QCOM24AB</HID_TSENS14>
+    <HID_TSENS15>QCOM24AC</HID_TSENS15>
+    <HID_TZ_LITTLE_CPU_VIRT>QCOM24AD</HID_TZ_LITTLE_CPU_VIRT>
+    <HID_TZ_BIG_CPU_VIRT>QCOM24AE</HID_TZ_BIG_CPU_VIRT>
+    <HID_TZ_CRT_TEMP_VIRT>QCOM24AF</HID_TZ_CRT_TEMP_VIRT>
+    <HID_IPA>QCOM24B0</HID_IPA>
+    <HID_FMSL>QCOM24B1</HID_FMSL>
+    <HID_BTUR>QCOM24B2</HID_BTUR>
+    <!--Driver: GPS; -->
+    <HID_SHCI>QCOM24B3</HID_SHCI>
+    <HID_GPS>QCOM24B4</HID_GPS>   
+    <!-- Voltage based Battery Monitoring System;  -->    
+    <HID_BMSV>QCOM24B5</HID_BMSV>   
+    <!--USB Dual Role/ Role Switch;  -->
+    <HID_HRS0>QCOM24B6</HID_HRS0>   
+    <!--USB Dual Role/ Role Switch; -->
+    <HID_HRS1>QCOM24B7</HID_HRS1>
+    <!--Driver : QMI Service Manager will be a new device managed by qcsubsys.sys;  -->
+    <HID_QSM>QCOM24B8</HID_QSM>
+    <!--Driver :for dummy HID for USB Chipidea ; -->
+    <HID_USBD>QCOM24B9</HID_USBD>   
+    <!--Driver:TrEE Class Minidriver; -->
+    <HID_TREE>QCOM24BA</HID_TREE>  
+    <!--Driver : NFC;  -->
+    <HID_NCI0>QCOM24BE</HID_NCI0>
+    <!--Driver : sdbus.sys;  -->
+    <HID_SDCC>QCOM24BF</HID_SDCC>
+	<!--Driver :within the SUBSYS driver;   -->
+ 	<HID_CXTL>QCOM24C0</HID_CXTL>
+	 <!--Driver :within the SUBSYS driver;  -->
+	 <HID_SCSS>QCOM24C1</HID_SCSS>
+	 <!--Driver :WINPMIC;   -->
+	 <HID_PMBD>QCOM24C2</HID_PMBD>
+	 <!--Driver :Battery Miniclass;   -->
+	 <HID_PBTD>QCOM24C3</HID_PBTD>
+	 <!--Driver :MIPI BIF Battery Authentication driver;  -->
+	 <HID_PMBA>QCOM24C4</HID_PMBA>
+	 <!--Driver :DPLBridge Data driver for Data Protocol Accelaration on WP PLs;  -->
+	 <HID_DPLB>QCOM24C5</HID_DPLB>
+	 <!--Driver :PMIC Test driver for implementing PMIC test cases;  -->
+	 <HID_PMKT>QCOM24C6</HID_PMKT>
+	 <!--Driver :Touch Controller Drivers - Different touch drivers to support controllers from different vendors (Atmel, Synaptics, etc); -->
+	 <HID_TSC2>QCOM24C7</HID_TSC2>
+	 <HID_TSC3>QCOM24C8</HID_TSC3>
+	 <HID_TSC4>QCOM24C9</HID_TSC4>
+	 <!--Driver :Touch Detection Driver - Detects touch controller on boot up and loads corresponding touch driver;  -->
+	 <HID_TDD1>QCOM24CA</HID_TDD1>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS16>QCOM24CB</HID_TSENS16>
+	 <HID_TSENS17>QCOM24CC</HID_TSENS17>
+	 <HID_TSENS18>QCOM24CD</HID_TSENS18>
+	 <HID_TSENS19>QCOM24CE</HID_TSENS19>
+	 <HID_TSENS20>QCOM24CF</HID_TSENS20>
+	 <!--Driver :System Settings Test Driver;  -->
+	 <HID_SYST>QCOM24D0</HID_SYST>
+	 <!--Driver :Qualcomm Protection Domain Service Registry;  -->
+	 <HID_PDSR>QCOM24D1</HID_PDSR>
+	 <!--Driver :TDD Bus driver - Detects touch controller on boot up and loads corresponding touch driver;  -->
+	 <HID_TDDB>QCOM24D2</HID_TDDB>
+	 <!--Driver :USB Type-C driver, supporting CC and PD signaling protocols;  -->
+	 <HID_USBC>QCOM24D3</HID_USBC>
+	 <!--Driver :Qualcomm Subsystem Driver;  -->
+	 <HID_SSDD>QCOM24D4</HID_SSDD>
+	 <!--Driver :RHProxy - Resource Hub Proxy driver for enabling user mode access to SPB devices;  -->
+	 <HID_RHPX>QCOM24D5</HID_RHPX>
+	 <!--Driver :pmicEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_PEIC>QCOM24D6</HID_PEIC>
+	 <!--Driver :battmngrEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_BEIC>QCOM24D7</HID_BEIC>
+	 <!--Driver :QualcommUltrasonicFingerprintSensor - New component added to main/latest to support qcQfpDriver8996.dll ;   -->
+	 <HID_QFPS>QCOM24D8</HID_QFPS>
+	 <!--Driver :FGBCl - to implement lower level bcl features such as setting threshold, register for battery current, vbatt, vph_pwr critical events to notify pep and to poll lmh, plm and bob status for logging and debugging;   -->
+	 <HID_BCL1>QCOM24D9</HID_BCL1>
+	 <!--Driver :qcsmmu8953, New driver for qcsmmu in 8953;   -->
+	 <HID_QMMU>QCOM24DA</HID_QMMU>
+	 <!--Driver :smmutestclient8953, New test driver for smmu500 in 8953;   -->
+	 <HID_TMMU>QCOM24DB</HID_TMMU>
+	 <!--Driver :qcECFWUpdateDriver, Works alongside a user-mode app (qcECFWUpdateApp.exe) to flash firmware onto the Clamshell device;   -->
+	 <HID_ECFW>QCOM24DC</HID_ECFW>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS21>QCOM24E0</HID_TSENS21>
+	 <HID_TSENS22>QCOM24E1</HID_TSENS22>
+	 <HID_TSENS23>QCOM24E2</HID_TSENS23>
+	 <HID_TSENS24>QCOM24E3</HID_TSENS24>
+	 <HID_TSENS25>QCOM24E4</HID_TSENS25>
+	 <HID_TSENS26>QCOM24E5</HID_TSENS26>
+	 <HID_TSENS27>QCOM24E6</HID_TSENS27>
+	 <HID_TSENS28>QCOM24E7</HID_TSENS28>
+	 <HID_TSENS29>QCOM24E8</HID_TSENS29>
+	 <HID_TSENS30>QCOM24E9</HID_TSENS30>
+	 <!--Driver :QWPP;   -->
+	 <HID_QWPP>QCOM24EA</HID_QWPP>
+	 <HID_WLAN>QCOM24EB</HID_WLAN>
+	 <!--Driver :qcpmictcc8998.sys; -->
+	 <HID_PTCC>QCOM24EC</HID_PTCC>
+	 <HID_GSI>QCOM24ED</HID_GSI>
+	 <!--Driver: MIPI CSI - the MIPI camera serial interface (CSI) and PHY decoder. Needed for 8996 64-bit & 8998 PLs. -->
+	 <HID_MPCS>QCOM24EE</HID_MPCS>
+	 <HID_QCAppProfiler>QCOM25A0</HID_QCAppProfiler>
+<!--end of 8996-->	 
+</PropertyGroup>  
+<PropertyGroup Condition="'$(QCPlatform)'=='850'">
+    <HID_QcUsbFnSsFilter>QCOM0200</HID_QcUsbFnSsFilter>
+    <HID_KMD_ISP10>QCOM0201</HID_KMD_ISP10>
+	<HID_AVSTREAM>QCOM0202</HID_AVSTREAM>	
+    <!-- HID not used in ACPI -->
+    <HID_BAMTEST>QCOM0203</HID_BAMTEST>
+	<HID_PMICKMDFTEST>QCOM0204</HID_PMICKMDFTEST>
+    <HID_PING>QCOM0205</HID_PING>
+    <HID_PONG>QCOM0206</HID_PONG>
+    <HID_DIAGCSITEST>QCOM0207</HID_DIAGCSITEST>
+    <HID_Timer_Hal_Extension_for_Badger>QCOM0208</HID_Timer_Hal_Extension_for_Badger>
+	<HID_Timer_Hal_Extension_WatchdogtTimer>QCOM0209</HID_Timer_Hal_Extension_WatchdogtTimer>
+	<HID_CHIPINFO>QCOM020A</HID_CHIPINFO>
+    <HID_SMD1>QCOM1F00</HID_SMD1>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCCI>QCOM1F01</HID_QCCI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCSI>QCOM1F02</HID_QCSI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SPMT>QCOM1F03</HID_SPMT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_GIOT>QCOM1F04</HID_GIOT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_IC01>QCOM1F05</HID_IC01>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_GLKT>QCOM1F06</HID_GLKT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SPIT>QCOM1F11</HID_SPIT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SMDD>QCOM1F12</HID_SMDD>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SECT>QCOM1F13</HID_SECT>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SATT>QCOM1F14</HID_SATT>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_STDQ>QCOM1F15</HID_STDQ>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SSBI>QCOM1F16</HID_SSBI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SBUS>QCOM1F17</HID_SBUS>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SCMT>QCOM1F0B</HID_SCMT>	<!-- DONOT CHANGE THIS FOR NOW -->	
+	<HID_TPMT>QCOM1F0E</HID_TPMT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCET>QCOM1F0D</HID_QCET>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QBCT>QCOM020B</HID_QBCT>	
+	<HID_SSMO>QCOM020C</HID_SSMO>
+    <HID_MBRG>QCOM020D</HID_MBRG>
+    <HID_RMNT>QCOM020E</HID_RMNT>
+	<HID_FM>QCOM020F</HID_FM>
+    <HID_RMAT>QCOM0210</HID_RMAT>
+    <HID_QATD>QCOM0211</HID_QATD>
+    <HID_MMU0>QCOM0212</HID_MMU0>
+    <HID_BAM0>QCOM0213</HID_BAM0>
+    <HID_SCM0>QCOM0214</HID_SCM0>
+    <HID_OMEM>QCOM0215</HID_OMEM>
+    <HID_SPMI>QCOM0216</HID_SPMI>
+    <HID_GIO0>QCOM0217</HID_GIO0>
+    <HID_DMUX>QCOM0218</HID_DMUX>
+    <HID_SMD0>QCOM0219</HID_SMD0>
+    <HID_SMSM>QCOM021A</HID_SMSM>
+    <!-- HID not used in ACPI -->
+    <HID_QCCIUM8974>QCOM021B</HID_QCCIUM8974>
+    <HID_IPC0>QCOM021C</HID_IPC0>
+    <HID_SMEM>QCOM021D</HID_SMEM>
+    <HID_SPI>QCOM021E</HID_SPI>
+    <HID_SLM1>QCOM021F</HID_SLM1>
+    <HID_I2C>QCOM0220</HID_I2C>
+    <HID_ADC1>QCOM0221</HID_ADC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCEPM8974>QCOM0222</HID_QCEPM8974>
+    <HID_ADC2>QCOM0223</HID_ADC2>
+    <HID_QDCI>QCOM0224</HID_QDCI>
+    <HID_QDIG>QCOM0225</HID_QDIG>
+    <HID_SSM>QCOM0226</HID_SSM>
+    <!-- HID not used in ACPI -->       
+    <HID_DIAGCSITESTDRIVER8974>QCOM0227</HID_DIAGCSITESTDRIVER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCHWNLED8974>QCOM0228</HID_QCHWNLED8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCKEYSCANNER8974>QCOM0229</HID_QCKEYSCANNER8974>
+    <HID_TSC1>QCOM022A</HID_TSC1>
+    <!-- HID not used in ACPI -->
+    <HID_QCHAPTICS8974>QCOM022B</HID_QCHAPTICS8974>
+    <HID_PWIO>QCOM022C</HID_PWIO>
+    <!-- HID not used in ACPI -->
+    <HID_QCUSBFNFILTER8974>QCOM022D</HID_QCUSBFNFILTER8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEHCIFILTER8974>QCOM022E</HID_QCEHCIFILTER8974>
+    <HID_QBCC>QCOM022F</HID_QBCC>	
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTHASH8974>QCOM0230</HID_QCBCRYPTHASH8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCERNG8974>QCOM0231</HID_QCERNG8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCEARM8974>QCOM0232</HID_QCEARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCE2ARM8974>QCOM0233</HID_QCE2ARM8974>
+    <!-- HID not used in ACPI -->
+    <HID_QCBCRYPTTEST8974>QCOM0234</HID_QCBCRYPTTEST8974>
+    <HID_RFS0>QCOM0235</HID_RFS0>
+    <HID_UART>QCOM0236</HID_UART>
+    <HID_PEP0>QCOM0237</HID_PEP0>
+    <HID_TMM0>QCOM0238</HID_TMM0>
+    <HID_PRXY>QCOM0239</HID_PRXY>
+    <HID_SDF1>QCOM023A</HID_SDF1>
+    <HID_PILC>QCOM023B</HID_PILC>
+    <HID_RIVA>QCOM023C</HID_RIVA>
+    <HID_ADSP>QCOM023D</HID_ADSP>
+    <HID_AMSS>QCOM023E</HID_AMSS>
+    <HID_ACD>QCOM023F</HID_ACD>
+    <HID_AUDD>QCOM0240</HID_AUDD>
+    <HID_ACDB_Driver>QCOM0241</HID_ACDB_Driver>
+    <HID_USB1>QCOM2430</HID_USB1>				<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <HID_ABD>QCOM0242</HID_ABD>
+    <HID_VFE0>QCOM0243</HID_VFE0>
+    <HID_CPP0>QCOM0244</HID_CPP0>
+    <HID_CAMS>QCOM0245</HID_CAMS>
+    <!-- HID not used in ACPI -->
+    <HID_Camera_Front_Sensor>QCOM0246</HID_Camera_Front_Sensor>
+    <!-- HID not used in ACPI -->
+    <HID_Web_Camera>QCOM0247</HID_Web_Camera>
+    <!-- HID not used in ACPI -->
+    <HID_2_Aptina_MT9M115_sensor>QCOM0248</HID_2_Aptina_MT9M115_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_3_Aptina_MT9M116_sensor>QCOM0249</HID_3_Aptina_MT9M116_sensor>
+    <HID_CAMF>QCOM024A</HID_CAMF>
+    <!-- HID not used in ACPI -->
+    <HID_5_Omnivision_OV2721_sensor>QCOM024B</HID_5_Omnivision_OV2721_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_6_Omnivision_OV2722_sensor>QCOM024C</HID_6_Omnivision_OV2722_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_7_Aptina_A8140_sensor>QCOM024D</HID_7_Aptina_A8140_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_8_Aptina_A8141_sensor>QCOM024E</HID_8_Aptina_A8141_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_9_Aptina_A8142_sensor>QCOM024F</HID_9_Aptina_A8142_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_10_Samsung_3L1_sensor>QCOM0250</HID_10_Samsung_3L1_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_11_Samsung_3L2_sensor>QCOM0251</HID_11_Samsung_3L2_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_12_Samsung_3L3_sensor>QCOM0252</HID_12_Samsung_3L3_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_13_Sony_IMX074_sensor>QCOM0253</HID_13_Sony_IMX074_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_14_Sony_IMX091_sensor>QCOM0254</HID_14_Sony_IMX091_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_15_Sony_IMX092_sensor>QCOM0255</HID_15_Sony_IMX092_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_16_Omnivision_OV5640_sensor>QCOM0256</HID_16_Omnivision_OV5640_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_17_Omnivision_OV5647_sensor>QCOM0257</HID_17_Omnivision_OV5647_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_18_Omnivision_OV5648_sensor>QCOM0258</HID_18_Omnivision_OV5648_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_19_Omnivision_OV8825_sensor>QCOM0259</HID_19_Omnivision_OV8825_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_20_Omnivision_OV8826_sensor>QCOM025A</HID_20_Omnivision_OV8826_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_21_Omnivision_OV8827_sensor>QCOM025B</HID_21_Omnivision_OV8827_sensor>
+    <!-- HID not used in ACPI -->
+    <HID_FLSH>QCOM025C</HID_FLSH>
+    <!-- HID not used in ACPI -->
+    <HID_23_SEMTECH_SC629A_flash_driver>QCOM025D</HID_23_SEMTECH_SC629A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_24_SEMTECH_SC630A_flash_driver>QCOM025E</HID_24_SEMTECH_SC630A_flash_driver>
+    <!-- HID not used in ACPI -->
+    <HID_Volume_Key_Driver>QCOM025F</HID_Volume_Key_Driver>
+    <HID_QMUX>QCOM0260</HID_QMUX>
+    <!-- HID not used in ACPI -->
+    <HID_WLAN_Driver>QCOM0261</HID_WLAN_Driver>
+    <HID_QCRT>QCOM0262</HID_QCRT>
+    <HID_PMBM>QCOM0263</HID_PMBM>
+    <HID_PMBT>QCOM0264</HID_PMBT>
+    <HID_PBMS>QCOM0265</HID_PBMS>
+    <HID_PMIC>QCOM0266</HID_PMIC>
+    <!-- HID not used in ACPI -->
+    <HID_Pmic3p>QCOM0267</HID_Pmic3p>
+    <HID_PMAP>QCOM0268</HID_PMAP>
+    <HID_PM01>QCOM0269</HID_PM01>
+    <HID_PMPB>QCOM026A</HID_PMPB>
+    <!-- HID not used in ACPI -->
+    <HID_PMicTestSuite>QCOM026B</HID_PMicTestSuite>
+    <HID_CDI>QCOM026C</HID_CDI>
+    <HID_RPEN>QCOM026D</HID_RPEN>
+    <!-- HID not used in ACPI -->
+    <HID_Bluetooth_Device>QCOM026E</HID_Bluetooth_Device>
+    <HID_CAMP>QCOM026F</HID_CAMP>
+    <!-- HID not used in ACPI -->
+    <HID_CAMD_Driver_Test_Driver>QCOM0270</HID_CAMD_Driver_Test_Driver>
+    <HID_ACSP>QCOM0271</HID_ACSP>
+    <!-- HID not used in ACPI -->    
+    <HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>QCOM0272</HID_Test_Driver_developed_by_CI_CASE_team_for_setting_the_mass_storage_cookies>
+    <HID_FTM0>QCOM0273</HID_FTM0>
+    <HID_AVSD>QCOM0274</HID_AVSD>
+    <HID_AVSE>QCOM0275</HID_AVSE>
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_Legacy>QCOM2465</HID_SDCC_Legacy>		<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <!-- HID not used in ACPI -->    
+    <HID_SDCC_SDHC>QCOM2466</HID_SDCC_SDHC>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_JPGE>QCOM0276</HID_JPGE>
+    <HID_MBHC>QCOM0277</HID_MBHC>
+    <HID_SNS1>QCOM0278</HID_SNS1>
+    <HID_ACC1>QCOM0279</HID_ACC1>
+    <HID_ALS1>QCOM027A</HID_ALS1>
+    <HID_GYR1>QCOM027B</HID_GYR1>
+    <HID_MAG1>QCOM027C</HID_MAG1>
+    <HID_PRX1>QCOM027D</HID_PRX1>
+    <HID_GPU0>QCOM027E</HID_GPU0>
+    <HID_TSENS0>QCOM027F</HID_TSENS0>
+    <HID_TSENS1>QCOM0280</HID_TSENS1>
+    <HID_TSENS2>QCOM0281</HID_TSENS2>
+    <HID_TSENS3>QCOM0282</HID_TSENS3>
+    <HID_TSENS4>QCOM0283</HID_TSENS4>
+    <HID_TSENS5>QCOM0284</HID_TSENS5>
+    <HID_TSENS6>QCOM0285</HID_TSENS6>
+    <HID_TSENS7>QCOM0286</HID_TSENS7>
+    <HID_TSENS8>QCOM0287</HID_TSENS8>
+    <HID_TSENS9>QCOM0288</HID_TSENS9>
+    <HID_TSENS10>QCOM0289</HID_TSENS10>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE1>QCOM028A</HID_PA_SENSE1>
+    <!-- HID not used in ACPI -->    
+    <HID_PA_SENSE2>QCOM028B</HID_PA_SENSE2>
+    <!-- HID not used in ACPI -->    
+    <HID_QDSS>QCOM028C</HID_QDSS>
+    <HID_GNSS>QCOM028D</HID_GNSS>
+    <HID_WDFH>QCOM028E</HID_WDFH>
+    <!-- HID not used in ACPI -->    
+    <HID_remote_filesystem_access_driver_for_ADSP>QCOM028F</HID_remote_filesystem_access_driver_for_ADSP>
+    <!-- HID not used in ACPI -->    
+    <HID_bluetooth_uart_for_AR3002>QCOM0290</HID_bluetooth_uart_for_AR3002>
+    <HID_MBBT>QCOM0291</HID_MBBT>
+    <!-- HID not used in ACPI -->    
+    <HID_sensor_stub_driver_qcsensorstub8974_sys>QCOM0292</HID_sensor_stub_driver_qcsensorstub8974_sys>
+    <!-- HID not used in ACPI -->    
+    <HID_UFN0>QCOM2484</HID_UFN0>				<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <HID_MBB0>QCOM0293</HID_MBB0>
+    <!-- HID not used in ACPI -->    
+    <HID_TZ_BCL>QCOM0294</HID_TZ_BCL>
+    <!-- HID not used in ACPI -->    
+    <HID_LTE_COEX_Manager_Driver>QCOM0295</HID_LTE_COEX_Manager_Driver>
+    <!-- driver developed by MS phone USB team -->    
+    <HID_UFN1>QCOM2488</HID_UFN1>				<!-- DONOT CHANGE THIS FOR NOW, RECOMMENDED FROM USB TEAM -->
+    <!-- HID not used in ACPI -->
+    <HID_pepstats_sys>QCOM0296</HID_pepstats_sys>
+    <!-- HID not used in ACPI -->
+    <HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>QCOM0297</HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>
+    <!-- HID not used in ACPI -->
+    <HID_QCDB>QCOM0298</HID_QCDB>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS0>QCOM0299</HID_VADC_SENS0>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS1>QCOM029A</HID_VADC_SENS1>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS2>QCOM029B</HID_VADC_SENS2>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS3>QCOM029C</HID_VADC_SENS3>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS4>QCOM029D</HID_VADC_SENS4>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS5>QCOM029E</HID_VADC_SENS5>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS6>QCOM029F</HID_VADC_SENS6>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS7>QCOM02A0</HID_VADC_SENS7>
+    <!-- Driver developed by MS phone USB team -->    
+    <HID_USB_HS2_core_device_device_mode_gdr>QCOM02A1</HID_USB_HS2_core_device_device_mode_gdr>
+    <HID_SEN1>QCOM02A2</HID_SEN1>
+    <HID_QMMI>QCOM02A3</HID_QMMI>
+    <HID_IMVR>QCOM02A4</HID_IMVR>
+    <HID_RVRM>QCOM02A5</HID_RVRM>
+    <HID_MHCL>QCOM02A6</HID_MHCL>
+    <HID_AMSL>QCOM02A7</HID_AMSL>
+    <HID_HWN0>QCOM02A8</HID_HWN0>
+    <HID_HWN1>QCOM02A9</HID_HWN1>
+    <HID_UFS0>QCOM24A5</HID_UFS0>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_HSIC>QCOM24A6</HID_HSIC>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_LNKL>QCOM02AA</HID_LNKL>
+    <HID_TSENS11>QCOM02AB</HID_TSENS11>
+    <HID_TSENS12>QCOM02AC</HID_TSENS12>
+    <HID_TSENS13>QCOM02AD</HID_TSENS13>
+    <HID_TSENS14>QCOM02AE</HID_TSENS14>
+    <HID_TSENS15>QCOM02AF</HID_TSENS15>
+    <HID_TZ_LITTLE_CPU_VIRT>QCOM02B0</HID_TZ_LITTLE_CPU_VIRT>
+    <HID_TZ_BIG_CPU_VIRT>QCOM02B1</HID_TZ_BIG_CPU_VIRT>
+    <HID_TZ_CRT_TEMP_VIRT>QCOM02B2</HID_TZ_CRT_TEMP_VIRT>
+    <HID_IPA>QCOM02B3</HID_IPA>
+    <HID_FMSL>QCOM02B4</HID_FMSL>
+    <HID_BTUR>QCOM02B5</HID_BTUR>
+    <!--Driver: GPS;  -->
+    <HID_SHCI>QCOM24B3</HID_SHCI>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_GPS>QCOM02B6</HID_GPS>   
+    <!-- Voltage based Battery Monitoring System;  -->    
+    <HID_BMSV>QCOM02B7</HID_BMSV>   
+    <!--USB Dual Role/ Role Switch;  -->
+    <HID_HRS0>QCOM24B6</HID_HRS0>   		<!-- DONOT CHANGE THIS NOW OR IN FUTURE. MSFT MAINTAINS THIS VALUE AND DOESN'T NEED TO CHANGE FOR EACH TARGET. -->
+    <!--USB Dual Role/ Role Switch;  -->
+    <HID_HRS1>QCOM02B8</HID_HRS1>
+    <!--Driver : QMI Service Manager will be a new device managed by qcsubsys.sys;  -->
+    <HID_QSM>QCOM02B9</HID_QSM>
+    <!--Driver :for dummy HID for USB Chipidea ; -->
+    <HID_USBD>QCOM02BA</HID_USBD>   
+    <!--Driver:TrEE Class Minidriver; -->
+    <HID_TREE>QCOM02BB</HID_TREE>  
+    <!--Driver : NFC;  -->
+    <HID_NCI0>QCOM02BC</HID_NCI0>
+    <!--Driver : sdbus.sys;  -->
+    <HID_SDCC>QCOM24BF</HID_SDCC>				<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+	<!--Driver :within the SUBSYS driver;   -->
+ 	<HID_CXTL>QCOM02BD</HID_CXTL>
+	 <!--Driver :within the SUBSYS driver;   -->
+	 <HID_SCSS>QCOM02BE</HID_SCSS>
+	 <!--Driver :WINPMIC;   -->
+	 <HID_PMBD>QCOM02BF</HID_PMBD>
+	 <!--Driver :Battery Miniclass;  -->
+	 <HID_PBTD>QCOM02C0</HID_PBTD>
+	 <!--Driver :MIPI BIF Battery Authentication driver;    -->
+	 <HID_PMBA>QCOM02C1</HID_PMBA>
+	 <!--Driver :DPLBridge Data driver for Data Protocol Accelaration on WP PLs; -->
+	 <HID_DPLB>QCOM02C2</HID_DPLB>
+	 <!--Driver :PMIC Test driver for implementing PMIC test cases;  -->
+	 <HID_PMKT>QCOM02C3</HID_PMKT>
+	 <!--Driver :Touch Controller Drivers - Different touch drivers to support controllers from different vendors (Atmel, Synaptics, etc);  -->
+	 <HID_TSC2>QCOM02C4</HID_TSC2>
+	 <HID_TSC3>QCOM02C5</HID_TSC3>
+	 <HID_TSC4>QCOM02C6</HID_TSC4>
+	 <!--Driver :Touch Detection Driver - Detects touch controller on boot up and loads corresponding touch driver;  -->
+	 <HID_TDD1>QCOM02C7</HID_TDD1>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS16>QCOM02C8</HID_TSENS16>
+	 <HID_TSENS17>QCOM02C9</HID_TSENS17>
+	 <HID_TSENS18>QCOM02CA</HID_TSENS18>
+	 <HID_TSENS19>QCOM02CB</HID_TSENS19>
+	 <HID_TSENS20>QCOM02CC</HID_TSENS20>
+	 <!--Driver :System Settings Test Driver;  -->
+	 <HID_SYST>QCOM02CD</HID_SYST>
+	 <!--Driver :Qualcomm Protection Domain Service Registry; -->
+	 <HID_PDSR>QCOM02CE</HID_PDSR>
+	 <!--Driver :TDD Bus driver - Detects touch controller on boot up and loads corresponding touch driver;  -->
+	 <HID_TDDB>QCOM02CF</HID_TDDB>
+	 <!--Driver :USB Type-C driver, supporting CC and PD signaling protocols;  -->
+	 <HID_USBC>QCOM02D0</HID_USBC>
+	 <!--Driver :Qualcomm Subsystem Driver;  -->
+	 <HID_SSDD>QCOM02D1</HID_SSDD>
+	 <!--Driver :RHProxy - Resource Hub Proxy driver for enabling user mode access to SPB devices;  -->
+	 <HID_RHPX>QCOM02D2</HID_RHPX>
+	 <!--Driver :pmicEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_PEIC>QCOM02D3</HID_PEIC>
+	 <!--Driver :battmngrEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_BEIC>QCOM02D4</HID_BEIC>
+	 <!--Driver :QualcommUltrasonicFingerprintSensor - New component added to main/latest to support qcQfpDriver8996.dll ;   -->
+	 <HID_QFPS>QCOM02D5</HID_QFPS>
+	 <!--Driver :FGBCl - to implement lower level bcl features such as setting threshold, register for battery current, vbatt, vph_pwr critical events to notify pep and to poll lmh, plm and bob status for logging and debugging;   -->
+	 <HID_BCL1>QCOM02D6</HID_BCL1>
+	 <!--Driver :qcsmmu8953, New driver for qcsmmu in 8953;   -->
+	 <HID_QMMU>QCOM02D7</HID_QMMU>
+	 <!--Driver :smmutestclient8953, New test driver for smmu500 in 8953;   -->
+	 <HID_TMMU>QCOM02D8</HID_TMMU>
+	 <!--Driver :qcECFWUpdateDriver, Works alongside a user-mode app (qcECFWUpdateApp.exe) to flash firmware onto the Clamshell device;   -->
+	 <HID_ECFW>QCOM02D9</HID_ECFW>
+	 <!--Driver :Qualcomm Temperature Sensor Device;  -->
+	 <HID_TSENS21>QCOM02DA</HID_TSENS21>
+	 <HID_TSENS22>QCOM02DB</HID_TSENS22>
+	 <HID_TSENS23>QCOM02DC</HID_TSENS23>
+	 <HID_TSENS24>QCOM02DD</HID_TSENS24>
+	 <HID_TSENS25>QCOM02DE</HID_TSENS25>
+	 <HID_TSENS26>QCOM02DF</HID_TSENS26>
+	 <HID_TSENS27>QCOM02E0</HID_TSENS27>
+	 <HID_TSENS28>QCOM02E1</HID_TSENS28>
+	 <HID_TSENS29>QCOM02E2</HID_TSENS29>
+	 <HID_TSENS30>QCOM02E3</HID_TSENS30>
+	 <!--Driver :QWPP;   -->
+	 <HID_QWPP>QCOM02E4</HID_QWPP>
+	 <HID_WLAN>QCOM02E5</HID_WLAN>
+	 <!--Driver :qcpmictcc8998.sys;  -->
+	 <HID_PTCC>QCOM02E6</HID_PTCC>
+	 <HID_GSI>QCOM02E7</HID_GSI>
+	 <!--Driver: MIPI CSI - the MIPI camera serial interface (CSI) and PHY decoder. Needed for 8996 64-bit & 8998 PLs. -->
+	 <HID_MPCS>QCOM02E8</HID_MPCS>
+         <HID_BUSPM>QCOM02E9</HID_BUSPM>
+	<HID_BUSPMLOG>QCOM02EA</HID_BUSPMLOG>
+	<HID_DisplayALECalibrationDriver>QCOM02EB</HID_DisplayALECalibrationDriver>
+	<HID_OEMPANEL>QCOM02EC</HID_OEMPANEL>
+	<HID_QCAppProfiler>QCOM02ED</HID_QCAppProfiler>
+	 <!-- Additional HIDs for VADC channels  -->
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS8>QCOM02EE</HID_VADC_SENS8>
+    <!-- HID not used in ACPI -->
+    <HID_VADC_SENS9>QCOM02EF</HID_VADC_SENS9>
+	<HID_DBUS>QCOM02F0</HID_DBUS>
+	<HID_MBBQBI>QCOM02F1</HID_MBBQBI>
+	<HID_MBB>QCOM02F2</HID_MBB>
+	<HID_ARPD>QCOM02F3</HID_ARPD>
+	<HID_QGPI>QCOM02F4</HID_QGPI>
+	<!-- Improve Touch driver -->
+	<HID_TSC5>QCOM02F5</HID_TSC5>
+	<HID_TFTP>QCOM02F6</HID_TFTP>
+	<HID_CDSP>QCOM02F7</HID_CDSP>
+	<HID_QLLC>QCOM02F8</HID_QLLC>
+	<HID_GLNK>QCOM02F9</HID_GLNK>
+	<HID_PTD0>QCOM02FA</HID_PTD0>
+	<HID_PTD1>QCOM02FB</HID_PTD1>
+	<HID_PTD2>QCOM02FC</HID_PTD2>
+	<HID_11AD>QCOM02FD</HID_11AD>
+	<HID_QRNG>QCOM02FE</HID_QRNG>
+	<HID_QEUD>QCOM02FF</HID_QEUD>	
+	<HID_USBA>QCOM0300</HID_USBA>	
+	<!-- Driver qSarMgr8998.sys -->
+	<HID_SARM>QCOM0301</HID_SARM>
+	<!-- Driver qcshutdownsvc8998.dll. -->
+	<HID_SSVC>QCOM0302</HID_SSVC>
+	<!-- For audioservice.dll -->
+	<HID_AUDS>QCOM0303</HID_AUDS>
+	<HID_URS0>QCOM0304</HID_URS0>
+	<HID_URS1>QCOM0305</HID_URS1>
+	<!-- For QPPX/main/latest - qcpciepepext.sys -->
+	<HID_QPPX>QCOM0306</HID_QPPX>
+	<!-- For QCSP/main/latest - qcsp.sys -->
+	<HID_QCSP>QCOM0307</HID_QCSP>
+	<!-- For sensors/main/latest - qcSensors850.dll -->
+	<HID_SEN2>QCOM0308</HID_SEN2>
+	<HID_SEN3>QCOM0309</HID_SEN3>
+	<!--Driver: pmicGlink -->
+	<HID_PMGK>QCOM030A</HID_PMGK>
+	<!--qciommuXXX.sys, HLOS IOMMU driver responsible for programming SMMUs(using MSFT IOMMU APIs) and maintaining page tables when MSFT HVX is available -->
+	<HID_IMMU>QCOM030B</HID_IMMU>
+	<!-- HID for UCSI Type-C driver for Lenovo and other customers -->
+	<HID_UCS0>QCOM030C</HID_UCS0>	
+  
+<!--end of 850-->
+</PropertyGroup>
+<PropertyGroup Condition="'$(QCPlatform)'=='8180'">
+     <HID_QcUsbFnSsFilter>QCOM0400</HID_QcUsbFnSsFilter>
+	<HID_BAMTEST>QCOM0401</HID_BAMTEST>
+    <HID_DIAGCSITEST>QCOM0402</HID_DIAGCSITEST>
+    <HID_Timer_Hal_Extension_for_Badger>QCOM0403</HID_Timer_Hal_Extension_for_Badger>
+	<HID_Timer_Hal_Extension_WatchdogtTimer>QCOM0404</HID_Timer_Hal_Extension_WatchdogtTimer>
+	<HID_CHIPINFO>QCOM0405</HID_CHIPINFO>
+	
+	<!-- Below are Found only in testdev.asl -->
+	<HID_SMD1>QCOM1F00</HID_SMD1>
+    <HID_QCCI>QCOM1F01</HID_QCCI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCSI>QCOM1F02</HID_QCSI>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SPMT>QCOM1F03</HID_SPMT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_GIOT>QCOM1F04</HID_GIOT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_IC01>QCOM1F05</HID_IC01>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_GLKT>QCOM1F06</HID_GLKT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SPIT>QCOM1F11</HID_SPIT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SMDD>QCOM1F12</HID_SMDD>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SECT>QCOM1F13</HID_SECT>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SATT>QCOM1F14</HID_SATT>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_STDQ>QCOM1F15</HID_STDQ>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SSBI>QCOM1F16</HID_SSBI>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SBUS>QCOM1F17</HID_SBUS>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_SCMT>QCOM1F0B</HID_SCMT>	<!-- DONOT CHANGE THIS FOR NOW -->	
+	<HID_TPMT>QCOM1F0E</HID_TPMT>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QCET>QCOM1F0D</HID_QCET>	<!-- DONOT CHANGE THIS FOR NOW -->
+    <HID_QBCT>QCOM020B</HID_QBCT>	<!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_SSMO>QCOM020C</HID_SSMO>   <!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_PMICKMDFTEST>QCOM0204</HID_PMICKMDFTEST>    <!-- DONOT CHANGE THIS FOR NOW -->
+	<HID_PTD0>QCOM02FA</HID_PTD0>   <!-- For Power test driver. DO NOT CHANGE VALUE FOR NEW PLATFORMS -->
+	<HID_PTD1>QCOM02FB</HID_PTD1>   <!-- For Power test driver. DO NOT CHANGE VALUE FOR NEW PLATFORMS -->
+	<HID_PTD2>QCOM02FC</HID_PTD2>   <!-- For Power test driver. DO NOT CHANGE VALUE FOR NEW PLATFORMS -->
+	<!-- End test ACPI drivers -->
+	
+	<HID_CAMF>QCOM0406</HID_CAMF>
+    <HID_MBRG>QCOM0407</HID_MBRG>
+    <HID_RMAT>QCOM0408</HID_RMAT>    
+	<HID_MMU0>QCOM0409</HID_MMU0>
+    <HID_BAM0>QCOM040A</HID_BAM0>    
+	<HID_SCM0>QCOM040B</HID_SCM0>
+    <HID_SPMI>QCOM040C</HID_SPMI>
+    <HID_GIO0>QCOM040D</HID_GIO0>  
+    <HID_IPC0>QCOM040E</HID_IPC0>  
+    <HID_SPI>QCOM040F</HID_SPI>
+    <HID_SLM1>QCOM0410</HID_SLM1>
+    <HID_I2C>QCOM0411</HID_I2C>
+	<HID_ADC1>QCOM0412</HID_ADC1>
+	<HID_QDCI>QCOM0413</HID_QDCI>
+    <HID_QDIG>QCOM0414</HID_QDIG>
+	<HID_SSM>QCOM0415</HID_SSM>
+	<HID_RFS0>QCOM0417</HID_RFS0>
+    <HID_UART>QCOM0418</HID_UART>	
+    <HID_PEP0>QCOM0419</HID_PEP0>	
+    <HID_TMM0>QCOM041A</HID_TMM0>
+    <HID_PILC>QCOM041B</HID_PILC> 
+    <HID_RIVA>QCOM041C</HID_RIVA>
+    <HID_ADSP>QCOM041D</HID_ADSP>
+    <HID_AMSS>QCOM041E</HID_AMSS>
+	<HID_CXTL>QCOM041F</HID_CXTL>
+    <HID_QSM>QCOM0420</HID_QSM> 
+    <HID_SCSS>QCOM0421</HID_SCSS> 
+    <HID_SSDD>QCOM0422</HID_SSDD> 
+    <HID_CDSP>QCOM0423</HID_CDSP>	
+    <HID_ACD>QCOM0424</HID_ACD>
+    <HID_AUDD>QCOM0425</HID_AUDD>
+    <HID_USB1>QCOM0426</HID_USB1>	<!-- usb value changed now -->
+    <HID_ABD>QCOM0427</HID_ABD>
+    <HID_VFE0>QCOM0428</HID_VFE0>
+    <HID_CAMS>QCOM0429</HID_CAMS>
+    <HID_FLSH>QCOM042A</HID_FLSH>
+	<HID_WLAN>QCOM042B</HID_WLAN>
+    <HID_QCRT>QCOM042C</HID_QCRT>
+    <HID_PMBM>QCOM042D</HID_PMBM>
+    <HID_PMIC>QCOM042E</HID_PMIC>
+    <HID_PMAP>QCOM042F</HID_PMAP>	
+    <HID_PM01>QCOM0430</HID_PM01>
+	<HID_PMBT>QCOM0431</HID_PMBT>
+    <HID_CDI>QCOM0432</HID_CDI>
+    <HID_RPEN>QCOM0433</HID_RPEN>
+	<HID_Bluetooth_Device>QCOM0434</HID_Bluetooth_Device>
+	<HID_CAMP>QCOM0435</HID_CAMP> 
+    <HID_SDCC_SDHC>QCOM2466</HID_SDCC_SDHC>			 <!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_JPGE>QCOM0436</HID_JPGE>
+	<HID_MBHC>QCOM0437</HID_MBHC>
+	<HID_SNS1>QCOM0438</HID_SNS1>
+    <HID_GPU0>QCOM043A</HID_GPU0>
+    <HID_TSENS0>QCOM043B</HID_TSENS0>
+    <HID_TSENS1>QCOM043C</HID_TSENS1>
+    <HID_TSENS2>QCOM043D</HID_TSENS2>
+    <HID_TSENS3>QCOM043E</HID_TSENS3>
+    <HID_TSENS4>QCOM043F</HID_TSENS4>
+    <HID_TSENS5>QCOM0440</HID_TSENS5>
+    <HID_TSENS6>QCOM0441</HID_TSENS6>
+    <HID_TSENS7>QCOM0442</HID_TSENS7>
+    <HID_TSENS8>QCOM0443</HID_TSENS8>
+    <HID_TSENS9>QCOM0444</HID_TSENS9>
+    <HID_TSENS10>QCOM0445</HID_TSENS10>
+	<HID_TSENS11>QCOM0446</HID_TSENS11>
+    <HID_TSENS12>QCOM0447</HID_TSENS12>
+    <HID_TSENS13>QCOM0448</HID_TSENS13>
+    <HID_TSENS14>QCOM0449</HID_TSENS14>
+    <HID_TSENS15>QCOM044A</HID_TSENS15>
+    <HID_TSENS16>QCOM044B</HID_TSENS16>
+	<HID_TSENS17>QCOM044C</HID_TSENS17>
+	<HID_TSENS18>QCOM044D</HID_TSENS18>
+	<HID_TSENS19>QCOM044E</HID_TSENS19>
+	<HID_TSENS20>QCOM044F</HID_TSENS20>
+    <HID_TSENS21>QCOM0450</HID_TSENS21>
+	<HID_TSENS22>QCOM0451</HID_TSENS22>
+	<HID_TSENS23>QCOM0452</HID_TSENS23>
+	<HID_TSENS24>QCOM0453</HID_TSENS24>
+	<HID_TSENS25>QCOM0454</HID_TSENS25>
+	<HID_TSENS26>QCOM0455</HID_TSENS26>
+	<HID_TSENS27>QCOM0456</HID_TSENS27>
+	<HID_TSENS28>QCOM0457</HID_TSENS28>
+	<HID_TSENS29>QCOM0458</HID_TSENS29>
+	<HID_TSENS30>QCOM0459</HID_TSENS30>
+    <HID_QDSS>QCOM045A</HID_QDSS>
+    <HID_TZ_BCL>QCOM045B</HID_TZ_BCL>
+	<HID_TZ_LITTLE_CPU_VIRT>QCOM045C</HID_TZ_LITTLE_CPU_VIRT>
+    <HID_TZ_BIG_CPU_VIRT>QCOM045D</HID_TZ_BIG_CPU_VIRT>
+    <HID_TZ_CRT_TEMP_VIRT>QCOM045E</HID_TZ_CRT_TEMP_VIRT>
+    <HID_LTE_COEX_Manager_Driver>QCOM045F</HID_LTE_COEX_Manager_Driver>
+    <HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>QCOM0460</HID_fastRPC_driver_to_make_RPC_from_apps_to_ADSP>
+    <HID_QCDB>QCOM0461</HID_QCDB>
+    <HID_VADC_SENS0>QCOM0462</HID_VADC_SENS0>    
+    <HID_VADC_SENS1>QCOM0463</HID_VADC_SENS1>
+    <HID_VADC_SENS2>QCOM0464</HID_VADC_SENS2>
+    <HID_VADC_SENS3>QCOM0465</HID_VADC_SENS3>
+    <HID_VADC_SENS4>QCOM0466</HID_VADC_SENS4>
+    <HID_VADC_SENS5>QCOM0467</HID_VADC_SENS5>
+    <HID_VADC_SENS6>QCOM0468</HID_VADC_SENS6>
+    <HID_VADC_SENS7>QCOM0469</HID_VADC_SENS7>
+    <HID_VADC_SENS8>QCOM046A</HID_VADC_SENS8>
+    <HID_VADC_SENS9>QCOM046B</HID_VADC_SENS9>
+    <HID_SEN1>QCOM046C</HID_SEN1>
+    <HID_HWN0>QCOM046D</HID_HWN0>
+    <HID_HWN1>QCOM046E</HID_HWN1>
+    <HID_UFS0>QCOM24A5</HID_UFS0>			<!-- DONOT CHANGE THIS FOR NOW, BOOT CRITICAL DRIVER WE WONT BE ABLE TO CHANGE THIS -->
+    <HID_IPA>QCOM0470</HID_IPA>
+    <HID_BTUR>QCOM0471</HID_BTUR>
+    <HID_GPS>QCOM0472</HID_GPS>   
+    <!--USB Dual Role/ Role Switch; -->
+    <HID_HRS0>QCOM0473</HID_HRS0>   		<!-- usb value changed now --> <!-- DONOT CHANGE THIS NOW OR IN FUTURE. MSFT MAINTAINS THIS VALUE AND DOESN'T NEED TO CHANGE FOR EACH TARGET. -->
+    <!--USB Dual Role/ Role Switch; -->
+    <HID_HRS1>QCOM0474</HID_HRS1>
+    <HID_USBD>QCOM0475</HID_USBD> <!--Driver :for dummy HID for USB Chipidea ; -->  
+    <HID_TREE>QCOM0476</HID_TREE>  <!--Driver:TrEE Class Minidriver; --> 
+	 <HID_DPLB>QCOM0477</HID_DPLB>
+	 <!--Driver :Touch Controller Drivers - Different touch drivers to support controllers from different vendors (Atmel, Synaptics, etc);  -->
+	 <HID_TSC2>QCOM0478</HID_TSC2>
+	 <HID_TSC3>QCOM0479</HID_TSC3>
+	 <HID_TSC4>QCOM047A</HID_TSC4>
+	 <HID_TSC5>QCOM047B</HID_TSC5>  	<!-- HID to Improve Touch driver -->
+	 <!--Driver :Qualcomm Protection Domain Service Registry; -->
+	 <HID_PDSR>QCOM047C</HID_PDSR> 
+	 <!--Driver :USB Type-C driver, supporting CC and PD signaling protocols;  -->
+	 <HID_USBC>QCOM047D</HID_USBC>	 
+	 <!--Driver :pmicEIC - New component added to threshold/latest to support SMB358;  -->
+	 <HID_PEIC>QCOM047E</HID_PEIC>
+	 <!--Driver :FGBCl - to implement lower level bcl features such as setting threshold, register for battery current, vbatt, vph_pwr critical events to notify pep and to poll lmh, plm and bob status for logging and debugging;   -->
+	 <HID_BCL1>QCOM047F</HID_BCL1>
+	 <!--Driver :qcECFWUpdateDriver, Works alongside a user-mode app (qcECFWUpdateApp.exe) to flash firmware onto the Clamshell device;   -->
+	 <HID_ECFW>QCOM0480</HID_ECFW> 
+	 <HID_QWPP>QCOM0481</HID_QWPP>  <!--Driver :QWPP;   -->
+	 <!--Driver :qcpmictcc8998.sys;  -->
+	 <HID_PTCC>QCOM0482</HID_PTCC>
+	 <HID_GSI>QCOM0483</HID_GSI>
+	 <HID_BUSPM>QCOM0484</HID_BUSPM>
+	<HID_BUSPMLOG>QCOM0485</HID_BUSPMLOG>
+	<HID_DisplayALECalibrationDriver>QCOM0486</HID_DisplayALECalibrationDriver>
+	<HID_OEMPANEL>QCOM0487</HID_OEMPANEL>	
+	<HID_QCAppProfiler>QCOM0488</HID_QCAppProfiler>
+    <HID_MBBQBI>QCOM0489</HID_MBBQBI>
+	<HID_ARPD>QCOM048A</HID_ARPD>
+	<HID_TFTP>QCOM048B</HID_TFTP>
+	<HID_QLLC>QCOM048C</HID_QLLC>
+	<HID_GLNK>QCOM048D</HID_GLNK>
+	<HID_QRNG>QCOM048E</HID_QRNG>
+	<HID_QEUD>QCOM048F</HID_QEUD>	
+	<HID_USBA>QCOM0490</HID_USBA>	
+	<HID_SSVC>QCOM0491</HID_SSVC>
+	<!-- QCSP/main/latest - qcsp.sys -->
+	<HID_QCSP>QCOM0492</HID_QCSP>
+	<HID_QGPI>QCOM0493</HID_QGPI> <!-- Referred by qgpi.asl -->
+	<HID_UFN0>QCOM0495</HID_UFN0>
+	<HID_UFN1>QCOM0496</HID_UFN1>
+	<HID_URS0>QCOM0497</HID_URS0>
+	<HID_URS1>QCOM0498</HID_URS1>
+	<HID_SPSS>QCOM0499</HID_SPSS>	
+	<!--Driver: pmicGlink -->
+	<HID_PMGK>QCOM049A</HID_PMGK>
+	<!--qciommuXXX.sys, HLOS IOMMU driver responsible for programming SMMUs(using MSFT IOMMU APIs) and maintaining page tables when MSFT HVX is available -->
+    <HID_IMMU>QCOM049B</HID_IMMU>
+    <!--Driver: qcpep -->
+    <HID_TSENS31>QCOM049C</HID_TSENS31>
+    <HID_TZ_GPU_TEMP_VIRT>QCOM049D</HID_TZ_GPU_TEMP_VIRT>
+    <HID_TZ_MDM_TEMP_VIRT>QCOM049E</HID_TZ_MDM_TEMP_VIRT>
+	<!-- For dual sensors driver -->
+	<HID_SEN2>QCOM049F</HID_SEN2>
+	<HID_SEN3>QCOM04A0</HID_SEN3>
+    <!--  For RMNT -->
+    <HID_RMNT>QCOM04A1</HID_RMNT>
+    <HID_QPPX>QCOM04A2</HID_QPPX>
+	<HID_AVSTREAM>QCOM04A3</HID_AVSTREAM>
+    <HID_MPCS>QCOM04A4</HID_MPCS>
+    <HID_Web_Camera>QCOM04A5</HID_Web_Camera>
+    <HID_USB2>QCOM04A6</HID_USB2>
+	<!-- For the driver qcccidbridge -->
+	<HID_CCID>QCOM04A7</HID_CCID>
+	<HID_RVRM>QCOM04A8</HID_RVRM>
+	<!-- HID for QcUSBcUCSI /MSFT UCSI Drivers -->
+	<HID_UCS0>QCOM04A9</HID_UCS0>
+	<!-- HID for QcSOCPartition -->
+	<HID_SOCP>QCOM04AA</HID_SOCP>
+	<!-- HID for SAR sensors SX931x Proximity Driver -->
+	<HID_SAR1>QCOM04AB</HID_SAR1>
+	<HID_SAR2>QCOM04AC</HID_SAR2>
+	<!--for Audio Tests  (stride test) -->
+	<HID_QATD>QCOM04AD</HID_QATD>
+	<!--Qualcomm Connection Security -->
+	<HID_CSEC>QCOM04AE</HID_CSEC>
+	<!--Modem Thermal Mitigation should support Modem proc as a cooling device on Windows-->
+	<HID_MPTM>QCOM04AF</HID_MPTM>
+	<!-- HID for qSarMgr Driver -->
+	<HID_SARM>QCOM04B0</HID_SARM>
+	<!--HID for mbbrnrtest Driver -->
+	<HID_MBBRR>QCOM04B1</HID_MBBRR>
+	
+<!--end of 8180-->
+</PropertyGroup>
+<PropertyGroup>
+    <QualcommHIDPropsImported>true</QualcommHIDPropsImported>
+</PropertyGroup>
+</Project>
